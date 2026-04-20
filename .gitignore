@@ -1,0 +1,15 @@
+# 本地私有 / 不上传到仓库
+chat_history/
+data/
+faq/
+
+# Node / VitePress 构建产物
+node_modules
+node_modules/
+src/node_modules/
+src/.vitepress/dist/
+src/.vitepress/cache/
+
+# 系统文件
+.DS_Store
+*.log
