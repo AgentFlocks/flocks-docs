@@ -4,8 +4,6 @@
 
 Flocks 的做法是让主 Agent `Rex` 拉取原始告警、落盘中间数据、委派专职分析 Agent 逐条研判，并把结构化结果通过通道外发，最后把整条链路转成每小时运行的定时任务。
 
-> 参考白皮书 §13.2 告警初判与降噪 / §13.3 复杂告警调查；对应内部 demo：`data/ndr_alert_analysis_demo.mp4`。
-
 ## 场景简介
 
 告警研判场景天然符合 Flocks 的强项：
@@ -94,7 +92,7 @@ Rex 会自动在 **任务中心** 创建一条任务：
 
 ## 真实案例走读（NDR 告警 5 条研判）
 
-这一节节选自内部 demo 的关键节点（对应 `data/ndr_alert_analysis_demo.mp4`，共 ~4 分钟）：
+这一节节选自demo演示的关键节点：
 
 | 时间 | Rex 动作 | 产出 / 说明 |
 | --- | --- | --- |
@@ -131,13 +129,13 @@ Rex 会自动在 **任务中心** 创建一条任务：
 
 ## 持续运行：从「做一次」到「常态化」
 
-这是告警研判最有价值的一步。任务中心（/md/modules#任务中心）把前面的一次性链路固化成：
+这是告警研判最有价值的一步。[任务中心](/md/modules/tasks)把前面的一次性链路固化成：
 
 - 每小时 / 每天 / 每周自动执行
 - 结果按时进群
 - 产出继续落盘，便于周度复盘
 
-> 进阶：可以把这条链路再次抽象为 **Workflow**，让 Rex 把"抓告警 → 落盘 → 委派研判 → 外发"拆成可编辑、可测试、可版本化的剧本。参考 [Workflow 工作流](/md/modules#workflow-工作流)。
+> 进阶：可以把这条链路再次抽象为 **Workflow**，让 Rex 把"抓告警 → 落盘 → 委派研判 → 外发"拆成可编辑、可测试、可版本化的剧本。参考 [Workflow 工作流](/md/modules/workflow)。
 
 ## 边界与常见问题
 
@@ -151,4 +149,4 @@ Rex 会自动在 **任务中心** 创建一条任务：
 
 ---
 
-相关：[场景总览](/md/scenarios) · [主机巡检 / 应急取证](/md/scenarios/host-forensics) · [内网安全产品接入](/md/scenarios/network-integration) · [威胁情报与 IOC 研判](/md/scenarios/threat-intel) · [任务中心](/md/modules#任务中心) · [通道配置](/md/communication#通道配置)
+相关：[场景总览](/md/scenarios) · [主机巡检 / 应急取证](/md/scenarios/host-forensics) · [内网安全产品接入](/md/scenarios/network-integration) · [威胁情报与 IOC 研判](/md/scenarios/threat-intel) · [任务中心](/md/modules/tasks) · [通道配置](/md/communication#通道配置)

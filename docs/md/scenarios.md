@@ -1,4 +1,15 @@
+<!--
+ * @Author: John Yin 10972267+john-yin2333@user.noreply.gitee.com
+ * @Date: 2026-04-19 02:36:36
+ * @LastEditors: John Yin 10972267+john-yin2333@user.noreply.gitee.com
+ * @LastEditTime: 2026-04-21 11:44:22
+ * @FilePath: /flocks-test/Users/yinzhongchao/Documents/flocks_docs/docs/md/scenarios.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 # 场景案例
+
+- 演示视频：[查看](https://mp.weixin.qq.com/s/Y3TZH-4JxS1hiVtJk9RLzw?version=5.0.7.99844&platform=mac)
+- 发布会直播回放：[查看](https://weixin.qq.com/sph/AfahBdDcYd)
 
 这一页不做抽象价值描述，只用已经能复用的工作流、任务和接入路径回答一个问题：**Flocks 适合拿来做什么**。
 
@@ -66,7 +77,7 @@
 4. **通道通知 + 定时任务** → 从"做一次"升级为"常态化运营"
 5. **把经验沉淀为 Skill** → 下次相似任务直接套
 
-读完上面 6 个子页再横向看一次，会发现它们本质是同一个骨架在不同问题域的投影——这也是把 Flocks 称为 **AI-Native SecOps 平台**、而不是"某一个 AI 功能"的原因。
+所有场景案例本质是同一个骨架在不同问题域的投影——这也是把 Flocks 称为 **AI-Native SecOps 平台**、而不是"某一个 AI 功能"的原因。
 
 ---
 

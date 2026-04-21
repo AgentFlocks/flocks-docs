@@ -4,8 +4,6 @@
 
 Flocks 在这个场景的价值不是"多一个扫描器"，而是**把多个外部测绘源 + 企业内部 CMDB + 威胁情报在同一个 Agent 上下文里组装起来**，让"有多少资产"和"这些资产有没有风险"一起给出答案。
 
-> 参考白皮书 §13.6 外网资产测绘；对应真实会话：flocks.threatbook-inc.cn:5173 上的「查询 threatbook.cn 互联网资产」会话。
-
 ## 场景简介
 
 外网资产测绘的典型痛点：
@@ -165,4 +163,4 @@ Rex 会：
 
 ---
 
-相关：[场景总览](/md/scenarios) · [威胁情报与 IOC 研判](/md/scenarios/threat-intel) · [内网安全产品接入](/md/scenarios/network-integration) · [浏览器自动化](/md/scenarios/browser-automation) · [任务中心](/md/modules#任务中心)
+相关：[场景总览](/md/scenarios) · [威胁情报与 IOC 研判](/md/scenarios/threat-intel) · [内网安全产品接入](/md/scenarios/network-integration) · [浏览器自动化](/md/scenarios/browser-automation) · [任务中心](/md/modules/tasks)

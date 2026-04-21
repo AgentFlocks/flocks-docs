@@ -20,22 +20,22 @@ features:
   - icon: 🤖
     title: 多智能体协作
     details: Rex 主 Agent 作为统一入口，拆解目标、协调执行；专家 Agent 深耕情报、主机、漏洞、网页取数等领域。
-    link: /md/modules#agent-智能体
+    link: /md/modules/agents
     linkText: 了解 Agent
   - icon: 🧰
     title: 工具、MCP 与外部系统接入
     details: 统一工具体系，内置工具、API 工具、Python 工具、MCP 一体化；把 ThreatBook、VT、FOFA、内部平台统一纳入上下文。
-    link: /md/modules#工具清单-mcp
+    link: /md/modules/tools
     linkText: 工具与 MCP
   - icon: 🔁
     title: 工作流与任务中心
     details: 工作流把零散动作组织为可创建、可校验、可测试的稳定剧本；任务中心支持周期执行、批量处理与持续运营。
-    link: /md/modules#workflow-工作流
+    link: /md/modules/workflow
     linkText: 工作流能力
   - icon: 📚
     title: 技能与经验沉淀
     details: Skills 承载规范、策略、方法论和任务模板，个人经验可以逐步转化为团队能力。
-    link: /md/modules#skills-技能库
+    link: /md/modules/skills
     linkText: Skills 技能库
   - icon: 🔌
     title: 多模型多入口

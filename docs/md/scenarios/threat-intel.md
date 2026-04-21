@@ -4,8 +4,6 @@
 
 Flocks 的做法是让 Rex 同时调用多个情报源（ThreatBook、VirusTotal、GreyNoise、FOFA 等），交叉比对结论，再结合企业内部上下文（是不是自己资产、有没有历史告警）给出统一判断。
 
-> 参考白皮书 §13.5 情报分析师；对应真实会话：flocks.threatbook-inc.cn:5173 上的「8.8.8.8 威胁情报查询」会话。
-
 ## 场景简介
 
 情报类任务在安全运营里属于"高频小粒度"——一天几十上百次，每次只要一两分钟，但耗费的精力并不小：
@@ -158,4 +156,4 @@ Rex 的价值不止"查完三家贴上来"，而是：
 
 ---
 
-相关：[场景总览](/md/scenarios) · [告警研判](/md/scenarios/alert-triage) · [内网安全产品接入](/md/scenarios/network-integration) · [互联网资产测绘](/md/scenarios/asset-discovery) · [Skills 能力沉淀](/md/modules#skills-能力沉淀)
+相关：[场景总览](/md/scenarios) · [告警研判](/md/scenarios/alert-triage) · [内网安全产品接入](/md/scenarios/network-integration) · [互联网资产测绘](/md/scenarios/asset-discovery) · [Skills 技能库](/md/modules/skills)

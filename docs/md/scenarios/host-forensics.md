@@ -4,8 +4,6 @@
 
 与告警研判不同，主机场景每一条命令都直接落到真实机器，风险远高于"查询类动作"。Flocks 的做法是：在主 Agent Rex 下面架一个专门的**主机巡检 Agent**，用**命令白名单 / 黑名单 + 人工逐条确认**这套机制，把"敏感操作"和"AI 自动化"解耦开。
 
-> 参考白皮书 §13.7 主机巡检；对应内部 demo：`data/host_forensics_demo.mp4`。
-
 ## 场景简介
 
 这个场景覆盖两类真实需求：
@@ -174,4 +172,4 @@ IoC:
 
 ---
 
-相关：[场景总览](/md/scenarios) · [告警研判](/md/scenarios/alert-triage) · [内网安全产品接入](/md/scenarios/network-integration) · [任务中心](/md/modules#任务中心) · [Agent 专家体系](/md/modules#agent-专家体系)
+相关：[场景总览](/md/scenarios) · [告警研判](/md/scenarios/alert-triage) · [内网安全产品接入](/md/scenarios/network-integration) · [任务中心](/md/modules/tasks) · [Agent 智能体](/md/modules/agents)

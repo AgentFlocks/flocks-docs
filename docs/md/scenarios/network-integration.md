@@ -7,7 +7,6 @@
 1. **面对一个设备，该走哪条路接进来**（选型：API / 日志推送 / 浏览器）
 2. **API 接入在 Flocks 里到底怎么做**（给一份 API 文档 → Rex 自动生成工具）
 
-> 参考白皮书 §6 语言生成 tools 与外部能力接入、§13.1 多设备接入与数据打通；对应内部 demo：`data/api_access.mp4`。
 
 ## 场景简介
 
@@ -65,7 +64,7 @@ Flocks **本身不硬性要求公网联网**。需要网络的是你选的模型
 
 ### 真实案例走读（VT API 从零接入）
 
-节选自 `data/api_access.mp4`（~2 分钟）：
+节选自demo演示视频（2 分钟）：
 
 | 时间 | Rex 动作 | 说明 |
 | --- | --- | --- |
@@ -146,4 +145,4 @@ Flocks **本身不硬性要求公网联网**。需要网络的是你选的模型
 
 ---
 
-相关：[场景总览](/md/scenarios) · [浏览器自动化与网页登录](/md/scenarios/browser-automation) · [告警研判](/md/scenarios/alert-triage) · [威胁情报与 IOC 研判](/md/scenarios/threat-intel) · [Tools 工具系统](/md/modules#tools-工具系统) · [MCP 接入](/md/integrations#mcp-接入)
+相关：[场景总览](/md/scenarios) · [浏览器自动化与网页登录](/md/scenarios/browser-automation) · [告警研判](/md/scenarios/alert-triage) · [威胁情报与 IOC 研判](/md/scenarios/threat-intel) · [工具清单 / MCP](/md/modules/tools) · [MCP 接入](/md/integrations#mcp-接入)
