@@ -137,6 +137,7 @@ export default defineConfig({
           text: '附录',
           collapsed: true,
           items: [
+            { text: '相关视频', link: '/md/appendix#相关视频' },
             { text: 'Flocks 白皮书', link: '/md/appendix#flocks-白皮书' },
             { text: 'Flocks 快速安装指南', link: '/md/appendix#flocks-快速安装指南' },
             { text: 'CLI 参考', link: '/md/appendix#cli-参考' },
