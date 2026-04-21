@@ -7,6 +7,9 @@
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 
+- 演示视频：[查看](https://mp.weixin.qq.com/s/Y3TZH-4JxS1hiVtJk9RLzw?version=5.0.7.99844&platform=mac)
+- 发布会直播回放：[查看](https://weixin.qq.com/sph/AfahBdDcYd)
+
 ## 六个核心场景
 
 ### [告警研判](/md/scenarios/alert-triage)
