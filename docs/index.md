@@ -15,6 +15,9 @@ hero:
     - theme: alt
       text: 场景案例
       link: /md/scenarios
+    - theme: alt
+      text: GitHub 开源项目
+      link: https://github.com/AgentFlocks/flocks
 
 features:
   - icon: 🤖

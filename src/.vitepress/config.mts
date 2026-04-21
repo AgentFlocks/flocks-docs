@@ -185,6 +185,10 @@ export default defineConfig({
       },
     },
 
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/AgentFlocks/flocks', ariaLabel: 'Flocks 开源项目' },
+    ],
+
     docFooter: {
       prev: '上一页',
       next: '下一页',
