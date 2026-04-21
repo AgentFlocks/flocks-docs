@@ -6,16 +6,6 @@
  * @FilePath: /flocks-test/Users/yinzhongchao/Documents/flocks_docs/docs/md/scenarios.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
-# 场景案例
-
-- 演示视频：[查看](https://mp.weixin.qq.com/s/Y3TZH-4JxS1hiVtJk9RLzw?version=5.0.7.99844&platform=mac)
-- 发布会直播回放：[查看](https://weixin.qq.com/sph/AfahBdDcYd)
-
-这一页不做抽象价值描述，只用已经能复用的工作流、任务和接入路径回答一个问题：**Flocks 适合拿来做什么**。
-
-下面 6 个子页是按"专业使用手册"整理的，每页都给出：场景简介 / 输入输出 / 前置条件 / 操作步骤 / 真实案例走读 / 产出示例 / 持续运行 / 边界与常见问题。如果你正在评估产品落地方式，建议**优先看告警研判和主机巡检**这两页，它们是 Flocks 在企业里最先跑起来的两个场景。
-
-![工作流列表页面](../img/scenarios-workflow-overview.png)
 
 ## 六个核心场景
 
