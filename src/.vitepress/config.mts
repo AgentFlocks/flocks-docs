@@ -145,6 +145,7 @@ export default defineConfig({
           text: '附录',
           collapsed: true,
           items: [
+            { text: '官方文档原件', link: '/md/appendix#官方文档原件' },
             { text: 'CLI 参考', link: '/md/appendix#cli-参考' },
             { text: '配置项索引', link: '/md/appendix#配置项索引' },
             { text: 'API 参考', link: '/md/appendix#api-参考' },

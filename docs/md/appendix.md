@@ -2,6 +2,26 @@
 
 本页保留为“轻量但实用”的参考入口，不追求把所有接口和配置逐行展开，而是优先收录最常用的 CLI 命令、配置域索引、API 阅读方式和核心术语。随着后续文档扩展，这一页也可以再拆出独立附录页。
 
+## 官方文档原件
+
+两份官方原始 PDF 原样嵌入，内容与对外分发版本一致；也可以直接下载本地留档。
+
+### Flocks 白皮书
+
+- 在线预览：下方嵌入的即为完整 PDF
+- 直接下载：[Flocks 白皮书.pdf](/flocks-docs/downloads/flocks-whitepaper.pdf)
+
+<iframe src="/flocks-docs/downloads/flocks-whitepaper.pdf" style="width:100%; height:900px; border:1px solid #e5e7eb; border-radius:4px;" title="Flocks 白皮书"></iframe>
+
+### Flocks 快速安装指南 v2.0
+
+- 在线预览：下方嵌入的即为完整 PDF
+- 直接下载：[Flocks 快速安装指南v2.0.pdf](/flocks-docs/downloads/flocks-install-guide.pdf)
+
+<iframe src="/flocks-docs/downloads/flocks-install-guide.pdf" style="width:100%; height:900px; border:1px solid #e5e7eb; border-radius:4px;" title="Flocks 快速安装指南 v2.0"></iframe>
+
+> 如浏览器无法内嵌预览 PDF（例如部分移动端或企业环境），请点击上方"直接下载"链接查看。
+
 ## CLI 参考
 
 执行 `flocks --help` 可以看到当前 CLI 的主命令。对日常使用最关键的是下面这些：
