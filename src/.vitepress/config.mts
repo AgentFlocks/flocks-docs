@@ -36,14 +36,6 @@ export default defineConfig({
         ],
       },
       { text: '场景案例', link: '/md/scenarios' },
-      {
-        text: '运维',
-        items: [
-          { text: '运维与排障', link: '/md/operations' },
-          { text: '安全与规范', link: '/md/security' },
-          { text: '附录', link: '/md/appendix' },
-        ],
-      },
     ],
 
     sidebar: {
@@ -186,7 +178,14 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/AgentFlocks/flocks', ariaLabel: 'Flocks 开源项目' },
+      { icon: 'github', link: 'https://github.com/AgentFlocks/flocks', ariaLabel: 'Flocks GitHub 开源项目' },
+      {
+        icon: {
+          svg: '<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Gitee</title><path d="M11.984 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.016 0zm6.74 6.625v2.254c0 .265-.215.48-.48.48H8.953c-.662 0-1.199.537-1.199 1.2v3.601c0 .663.537 1.2 1.2 1.2h7.199c.662 0 1.199-.537 1.199-1.2v-.42c0-.265-.215-.48-.48-.48h-4.68c-.264 0-.479-.215-.479-.48v-2.254c0-.265.215-.48.48-.48h8.039c.265 0 .48-.215.48-.48V6.625c0-.265-.215-.48-.48-.48h-12c-1.982 0-3.59 1.608-3.59 3.59v6.953c0 .93.77 1.7 1.7 1.7h10.79c1.982 0 3.59-1.608 3.59-3.59v-4.7c0-.264-.215-.479-.48-.479h-2.254z"/></svg>',
+        },
+        link: 'https://gitee.com/flocks/flocks',
+        ariaLabel: 'Flocks Gitee 镜像',
+      },
     ],
 
     docFooter: {
