@@ -1,20 +1,17 @@
 # 附录
 
-本页保留为“轻量但实用”的参考入口，不追求把所有接口和配置逐行展开，而是优先收录最常用的 CLI 命令、配置域索引、API 阅读方式和核心术语。随着后续文档扩展，这一页也可以再拆出独立附录页。
+- 演示视频：[查看](https://mp.weixin.qq.com/s/Y3TZH-4JxS1hiVtJk9RLzw?version=5.0.7.99844&platform=mac)
+- 发布会直播回放：[查看](https://weixin.qq.com/sph/AfahBdDcYd)
 
 ## Flocks 白皮书
 
 - 在线预览：下方嵌入的即为完整 PDF
 - 直接下载：[Flocks 白皮书.pdf](/flocks-docs/downloads/flocks-whitepaper.pdf)
 
-<iframe src="/flocks-docs/downloads/flocks-whitepaper.pdf" style="width:100%; height:900px; border:1px solid #e5e7eb; border-radius:4px;" title="Flocks 白皮书"></iframe>
-
 ## Flocks 快速安装指南
 
 - 在线预览：下方嵌入的即为完整 PDF
 - 直接下载：[Flocks 快速安装指南 v2.0.pdf](/flocks-docs/downloads/flocks-install-guide.pdf)
-
-<iframe src="/flocks-docs/downloads/flocks-install-guide.pdf" style="width:100%; height:900px; border:1px solid #e5e7eb; border-radius:4px;" title="Flocks 快速安装指南 v2.0"></iframe>
 
 > 如浏览器无法内嵌预览 PDF（例如部分移动端或企业环境），请点击上方"直接下载"链接查看。
 
@@ -22,20 +19,22 @@
 
 执行 `flocks --help` 可以看到当前 CLI 的主命令。对日常使用最关键的是下面这些：
 
-| 命令 | 作用 | 常见场景 |
-| --- | --- | --- |
-| `flocks start` | 启动后端和 WebUI | 首次启动、日常运行 |
-| `flocks stop` | 停止后端和 WebUI | 升级前、排障前、重启前 |
-| `flocks restart` | 重启服务 | 修改配置后重启、显式全量重启 |
-| `flocks status` | 查看当前运行状态 | 判断服务是否真正启动 |
-| `flocks logs` | 查看后端和 WebUI 日志 | 排查启动、模型、工具和页面问题 |
-| `flocks update` | 升级到最新版本 | 页面升级或手动升级之外的 CLI 入口 |
-| `flocks task` | 管理任务中心相关能力 | 队列任务、定时任务 |
-| `flocks session` | 管理会话 | 导出、排查或批量处理会话 |
-| `flocks mcp` | 管理 MCP 服务 | MCP 接入、状态检查 |
-| `flocks skills` | 管理 Skills | 技能安装、启用和查看 |
-| `flocks export` / `flocks import` | 导出或导入会话数据 | 迁移和备份 |
-| `flocks stats` | 查看使用统计 | 快速确认运行数据 |
+
+| 命令                                | 作用             | 常见场景                |
+| --------------------------------- | -------------- | ------------------- |
+| `flocks start`                    | 启动后端和 WebUI    | 首次启动、日常运行           |
+| `flocks stop`                     | 停止后端和 WebUI    | 升级前、排障前、重启前         |
+| `flocks restart`                  | 重启服务           | 修改配置后重启、显式全量重启      |
+| `flocks status`                   | 查看当前运行状态       | 判断服务是否真正启动          |
+| `flocks logs`                     | 查看后端和 WebUI 日志 | 排查启动、模型、工具和页面问题     |
+| `flocks update`                   | 升级到最新版本        | 页面升级或手动升级之外的 CLI 入口 |
+| `flocks task`                     | 管理任务中心相关能力     | 队列任务、定时任务           |
+| `flocks session`                  | 管理会话           | 导出、排查或批量处理会话        |
+| `flocks mcp`                      | 管理 MCP 服务      | MCP 接入、状态检查         |
+| `flocks skills`                   | 管理 Skills      | 技能安装、启用和查看          |
+| `flocks export` / `flocks import` | 导出或导入会话数据      | 迁移和备份               |
+| `flocks stats`                    | 查看使用统计         | 快速确认运行数据            |
+
 
 最常见的组合命令通常是：
 
@@ -56,16 +55,18 @@ flocks restart
 
 `flocks.json` 或示例配置里的几个高频配置域，可以先按职责来理解，而不是逐个字段死记。
 
-| 配置域 | 作用 | 你通常在什么时候改它 |
-| --- | --- | --- |
-| `provider` | 定义模型供应商、适配器和模型集合 | 接入 OpenAI Compatible、本地模型、自建网关 |
-| `api_services` | 定义外部安全服务是否启用 | 接 TDP、ThreatBook、Qingteng 等平台 |
-| `mcp` | 定义 MCP 服务接入 | 用 MCP 扩展外部上下文或工具能力 |
-| `channels` | 定义消息通道 | 接飞书、企微、钉钉、Telegram |
-| `sandbox` | 定义执行隔离方式 | 团队化运行、需要更强边界控制时 |
-| `server` | 定义服务层行为 | 调整 CORS 或服务访问相关配置 |
-| `allowReadPaths` | 定义允许读取的路径 | 需要显式授权额外读路径时 |
-| `updater` | 定义升级源和升级策略 | 调整 GitHub / Gitee 更新来源时 |
+
+| 配置域              | 作用               | 你通常在什么时候改它                     |
+| ---------------- | ---------------- | ------------------------------ |
+| `provider`       | 定义模型供应商、适配器和模型集合 | 接入 OpenAI Compatible、本地模型、自建网关 |
+| `api_services`   | 定义外部安全服务是否启用     | 接 TDP、ThreatBook、Qingteng 等平台  |
+| `mcp`            | 定义 MCP 服务接入      | 用 MCP 扩展外部上下文或工具能力             |
+| `channels`       | 定义消息通道           | 接飞书、企微、钉钉、Telegram             |
+| `sandbox`        | 定义执行隔离方式         | 团队化运行、需要更强边界控制时                |
+| `server`         | 定义服务层行为          | 调整 CORS 或服务访问相关配置              |
+| `allowReadPaths` | 定义允许读取的路径        | 需要显式授权额外读路径时                   |
+| `updater`        | 定义升级源和升级策略       | 调整 GitHub / Gitee 更新来源时        |
+
 
 如果你是第一次配置 Flocks，优先掌握 `provider`、`channels` 和 `api_services` 就足够；其余配置更适合在扩展接入或团队部署阶段再深入。
 
