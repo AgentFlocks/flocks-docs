@@ -8,12 +8,12 @@
 ## Flocks 白皮书
 
 - 在线预览：下方嵌入的即为完整 PDF
-- 直接下载：[Flocks 白皮书.pdf](/flocks-docs/downloads/flocks-whitepaper.pdf)
+- 直接下载：[Flocks 白皮书.pdf](../downloads/flocks-whitepaper.pdf)
 
 ## Flocks 快速安装指南
 
 - 在线预览：下方嵌入的即为完整 PDF
-- 直接下载：[Flocks 快速安装指南 v2.0.pdf](/flocks-docs/downloads/flocks-install-guide.pdf)
+- 直接下载：[Flocks 快速安装指南 v2.0.pdf](../downloads/flocks-install-guide.pdf)
 
 > 如浏览器无法内嵌预览 PDF（例如部分移动端或企业环境），请点击上方"直接下载"链接查看。
 

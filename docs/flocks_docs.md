@@ -11,6 +11,7 @@
 | 大类 | 细类 | 文档链接 |
 | --- | --- | --- |
 | 概览 | 项目介绍 | [项目介绍](md/overview.md) |
+| 概览 | 奖励计划 | [奖励计划](md/overview.md) |
 | 概览 | 核心能力 | [核心能力](md/overview.md) |
 | 概览 | 架构与组成 | [架构与组成](md/overview.md) |
 | 概览 | 白皮书与公开资料 | [白皮书与公开资料](md/overview.md) |
@@ -20,6 +21,7 @@
 | 通信配置 | 远程部署 | [远程部署](md/communication.md) |
 | 通信配置 | 网络与离线安装 | [网络与离线安装](md/communication.md) |
 | 通信配置 | WebUI / API 访问关系 | [WebUI / API 访问关系](md/communication.md) |
+| 通信配置 | 账号管理 | [账号管理](md/account-management.md) |
 | 通信配置 | 通道配置 | [通道配置](md/communication.md) |
 | 主模块 | 会话管理 | [会话管理](md/modules.md) |
 | 主模块 | Agent 智能体 | [Agent 智能体](md/modules.md) |

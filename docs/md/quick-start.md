@@ -4,11 +4,12 @@
 
 ## 安装与快速开始
 
-Flocks 当前有两条主要安装路径：终端安装和 Docker 安装。
+Flocks 当前有两条主要安装路径：终端安装和 Docker 安装。Windows 用户也可以选择 EXE 安装包完成图形化安装。最低配置建议为 2 核 4G，推荐优先在本机安装使用。
 
 | 方式 | 适合场景 | 说明 |
 | --- | --- | --- |
 | 终端安装 | 推荐给大多数用户 | 更适合本地开发、完整交互和后续排障 |
+| Windows 安装包 | Windows x64 用户 | 通过安装向导完成安装，当前为 Beta |
 | Docker 安装 | 想快速起服务或做环境隔离 | 开箱即用，但 `agent-browser` 的 headed 模式暂不可用 |
 
 ### 推荐路径 1：终端安装
@@ -31,7 +32,19 @@ cd flocks
 
 Windows 环境建议用管理员 PowerShell 执行对应脚本，避免权限和环境变量问题。
 
-### 推荐路径 2：Docker 安装
+### 推荐路径 2：Windows 安装包（EXE，Beta）
+
+如果你使用 Windows x64，可以从 [GitHub Releases](https://github.com/AgentFlocks/flocks/releases) 下载 `FlocksSetup-<tag>.exe` 安装包，并按安装向导完成安装。
+
+安装完成后，可以通过开始菜单或桌面快捷方式启动 Flocks；也可以打开一个新的终端执行：
+
+```powershell
+flocks start
+```
+
+如果你选择在终端启动，建议安装完成后新开 PowerShell 或命令行窗口，确保新的 `PATH` 等环境变量已经生效。
+
+### 推荐路径 3：Docker 安装
 
 如果你更在意环境隔离或快速部署，可以直接拉取镜像：
 

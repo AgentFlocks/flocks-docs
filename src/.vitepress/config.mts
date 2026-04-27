@@ -45,6 +45,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: '项目介绍', link: '/md/overview#项目介绍' },
+            { text: '奖励计划', link: '/md/overview#奖励计划' },
             { text: '核心能力', link: '/md/overview#核心能力' },
             { text: '架构与组成', link: '/md/overview#架构与组成' },
             { text: '白皮书与公开资料', link: '/md/overview#白皮书与公开资料' },
@@ -66,6 +67,7 @@ export default defineConfig({
             { text: '远程部署', link: '/md/communication#远程部署' },
             { text: '网络与离线安装', link: '/md/communication#网络与离线安装' },
             { text: 'WebUI / API 访问关系', link: '/md/communication#webui-api-访问关系' },
+            { text: '账号管理', link: '/md/account-management' },
             { text: '通道配置', link: '/md/communication#通道配置' },
             { text: '钉钉通道配置', link: '/md/channels/dingtalk' },
             { text: '飞书通道配置', link: '/md/channels/feishu' },
