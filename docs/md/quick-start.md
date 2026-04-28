@@ -8,7 +8,7 @@ Flocks 当前有两条主要安装路径：终端安装和 Docker 安装。Windo
 
 #### 系统要求
 - Ubuntu ≥20.04 / Debian ≥10
-- RHEL/CentOS 系 ≥8
+- RHEL/CentOS 系 ≥8，Rocky 9以上
 - 最低配置建议为 2 核 4G，推荐优先在本机安装使用。
 
 | 方式 | 适合场景 | 说明 |
