@@ -55,48 +55,13 @@ docker run -d \
 
 ## 网络与离线安装
 
-对于中国大陆或受限网络环境，最现实的策略通常不是“完全离线”，而是“尽量减少在线依赖带来的不确定性”。
+- 如果你使用 Windows x64，可以从 [GitHub Releases](https://github.com/AgentFlocks/flocks/releases) 下载 `FlocksSetup-<tag>.exe` 安装包，并按安装向导完成安装。
 
 ### 中国大陆环境建议
 
-优先采用以下三条策略：
+默认推荐使用 Gitee 上的 `install_zh` 一键安装脚本；如果你希望先审查仓库内容，也可以先从 Gitee 克隆源码后再安装，见[「选项 B：源码安装」](quick-start.md#推荐路径-1终端安装)。
 
-1. 使用 Gitee 安装入口，而不是直接依赖 GitHub
-2. 为 `uv` 配置国内镜像源
-3. Docker 场景优先使用国内镜像地址
-
-`uv` 镜像配置示例：
-
-```toml
-[[index]]
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
-
-[[index]]
-url = "https://pypi.org/simple"
-default = true
-```
-
-保存路径：
-
-```text
-~/.config/uv/uv.toml
-```
-
-Docker 国内镜像示例：
-
-```text
-ghcr.nju.edu.cn/agentflocks/flocks:latest
-```
-
-### 离线安装应该怎么理解
-
-当前资料更支持“受限网络安装”，而不是“开箱即用的纯离线标准流程”。这意味着：
-
-- 如果环境完全不联网，你通常需要提前准备源码、镜像和依赖
-- 仅准备 Python 镜像还不够，前端构建链路也会受到 npm 下载影响
-- 更稳妥的策略是先在可联网环境完成拉取，再迁移到受限网络环境
-
-如果你的目标是长期稳定部署，源码安装或容器方式通常比完全依赖一键脚本更容易掌控。
+docker 国内镜像地址：[ghcr.nju.edu.cn/agentflocks/flocks:latest](https://ghcr.nju.edu.cn/agentflocks/flocks:latest)
 
 ## WebUI / API 访问关系
 

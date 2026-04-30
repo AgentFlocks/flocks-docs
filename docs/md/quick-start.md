@@ -65,6 +65,8 @@ docker run -d \
   ghcr.io/agentflocks/flocks:latest
 ```
 
+docker 国内镜像地址：[ghcr.nju.edu.cn/agentflocks/flocks:latest](https://ghcr.nju.edu.cn/agentflocks/flocks:latest)
+
 需要注意的是，Docker 更适合服务化使用，不适合依赖本机交互式浏览器登录的场景。如果你的任务高度依赖网页登录和人工交互，终端安装更合适。
 
 ### 安装前的最低依赖

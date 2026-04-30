@@ -7,6 +7,27 @@ WebUI 主导航里，这些模块分两组呈现：
 - **AI 工作台**：[会话管理](/md/overview#会话管理与主交互面) · [任务中心](/md/modules/tasks) · [Workspace](/md/modules/workspace)
 - **Agent 工作室**：[Agent 智能体](/md/modules/agents) · [Workflow 工作流](/md/modules/workflow) · [Skills 技能库](/md/modules/skills) · [工具清单 / MCP](/md/modules/tools) · [模型清单](/md/integrations#模型配置) · [通道配置](/md/communication)
 
+## 能力选择原则
+
+Skill、Agent / Subagent 与 Workflow 都用于承载具体任务能力，核心差异在于**流程固化程度、执行灵活性和主 Agent 参与方式**。
+
+- **Workflow 工作流**
+  - 定位：将任务步骤、工具调用和判断逻辑固化为稳定流程，最接近可审计、可复现的自动化剧本。
+  - 特点：流程固定，执行结果稳定，适合标准化运行和持续运营。
+  - 适用场景：高频、重复、规则明确、对一致性要求高的任务。
+- **Agent / Subagent 智能体**
+  - 定位：在预设 System Prompt 和固定工具集内，自主理解目标、规划路径并完成任务。
+  - 特点：比 Workflow 更灵活，但仍受角色设定、上下文窗口和工具边界约束。
+  - 适用场景：目标明确，但执行路径需要根据上下文动态调整的分析、检索、排障和处置任务。
+- **Skill 技能**
+  - 定位：由主 Agent 按需加载的能力包，用于提供方法论、操作规范、领域上下文和可复用经验。
+  - 特点：灵活性最高，主 Agent 可以同时加载多个 Skill，组合完成跨领域、复杂或长链路任务。
+  - 适用场景：需要主 Agent 统一编排、需要多种能力协同，或希望将经验持续沉淀并复用的任务。
+
+选型时应优先依据任务性质判断。**要求稳定、可控、可重复的任务，优先使用 Workflow；要求智能判断、上下文适配和动态决策的任务，优先使用 Agent / Subagent 或 Skill；要求跨领域组合、长期演进和主 Agent 统一调度的任务，优先建设 Skill**。
+
+组合设计应保持克制。一般不建议为了单一任务同时混合 Workflow、Agent / Subagent 和 Skill；除非任务本身确实存在清晰的分层边界和编排收益，否则过早组合多种机制容易增加理解、调试和维护成本，形成不必要的过度设计。
+
 ## 七个核心模块
 
 ### [Agent 智能体](/md/modules/agents)
