@@ -4,7 +4,7 @@
 
 ## 安装与快速开始
 
-Flocks 当前有两条主要安装路径：终端安装和 Docker 安装。Windows 用户也可以选择 EXE 安装包完成图形化安装。
+Flocks 当前有两条主要部署路径：终端安装和 Docker 安装。Windows x64 用户在终端安装之外，也可以选择 EXE 安装包完成图形化安装。
 
 #### 系统要求
 - Ubuntu ≥20.04 / Debian ≥10
@@ -27,15 +27,25 @@ Flocks 当前有两条主要安装路径：终端安装和 Docker 安装。Windo
 curl -fsSL https://gitee.com/flocks/flocks/raw/main/install_zh.sh | bash
 ```
 
+Windows 环境建议使用管理员 PowerShell 执行：
+
+```powershell
+powershell -c "irm https://gitee.com/flocks/flocks/raw/main/install_zh.ps1 | iex"
+```
+
 如果你希望先查看源码，再自己执行安装脚本，可以采用源码安装：
 
 ```bash
 git clone https://gitee.com/flocks/flocks.git flocks
 cd flocks
-./scripts/install_zh.sh
+sh ./scripts/install_zh.sh
 ```
 
-Windows 环境建议用管理员 PowerShell 执行对应脚本，避免权限和环境变量问题。
+Windows 环境建议用管理员 PowerShell 执行对应脚本：
+
+```powershell
+powershell -ep Bypass -File .\scripts\install_zh.ps1
+```
 
 ### 推荐路径 2：Windows 安装包（EXE，Beta）
 
@@ -65,9 +75,22 @@ docker run -d \
   ghcr.io/agentflocks/flocks:latest
 ```
 
+Windows PowerShell
+
+```powershell
+docker run -d `
+  --name flocks `
+  -e TZ=Asia/Shanghai `
+  -p 8000:8000 `
+  -p 5173:5173 `
+  --shm-size 2gb `
+  -v "${env:USERPROFILE}\.flocks:/home/flocks/.flocks" `
+  ghcr.io/agentflocks/flocks:latest
+```
+
 docker 国内镜像地址：[ghcr.nju.edu.cn/agentflocks/flocks:latest](https://ghcr.nju.edu.cn/agentflocks/flocks:latest)
 
-需要注意的是，Docker 更适合服务化使用，不适合依赖本机交互式浏览器登录的场景。如果你的任务高度依赖网页登录和人工交互，终端安装更合适。
+需要注意的是，Docker 更适合服务化使用，不适合依赖本机交互式浏览器登录的场景。如果你的任务高度依赖网页登录和人工交互，终端安装更合适。镜像中的 `EXPOSE` 仅用于声明容器端口，实际仍需要 `-p 8000:8000 -p 5173:5173` 才能从宿主机浏览器访问服务。
 
 ### 安装前的最低依赖
 
@@ -78,7 +101,7 @@ docker 国内镜像地址：[ghcr.nju.edu.cn/agentflocks/flocks:latest](https://
 - `agent-browser`
 - `bun`（可选，用于 TUI 安装）
 
-如果你在中国大陆环境使用，建议提前为 `uv` 配置国内镜像源，这会明显提升安装成功率和依赖下载速度。
+安装脚本会在可行时尽量自动补齐这些依赖；如果安装过程中自动安装 `npm` 失败，请手动安装 `Node.js 22+` 与 `npm`。如果你在中国大陆环境使用，建议提前为 `uv` 配置国内镜像源，这会明显提升安装成功率和依赖下载速度。
 
 ## 服务启动与访问
 
@@ -88,6 +111,8 @@ docker 国内镜像地址：[ghcr.nju.edu.cn/agentflocks/flocks:latest](https://
 flocks start
 flocks status
 flocks logs
+flocks restart
+flocks stop
 ```
 
 其中：
@@ -97,11 +122,18 @@ flocks logs
 - `flocks logs`：查看启动和运行日志
 - `flocks restart`：显式全量重启
 - `flocks stop`：停止服务
+- `flocks --help`：查看完整 CLI 用法
 
 默认访问地址为：
 
 - WebUI：`http://127.0.0.1:5173`
 - 后端 API：`http://127.0.0.1:8000`
+
+如果需要远程访问，可显式指定监听地址：
+
+```bash
+flocks start --server-host <ip> --webui-host <ip>
+```
 
 如果你只是本机使用，直接打开 `http://127.0.0.1:5173` 即可。如果你部署在云主机、虚拟机或局域网机器上，还需要显式修改监听地址和端口暴露策略。
 
@@ -111,7 +143,7 @@ flocks logs
 2. 执行 `flocks logs`，确认没有持续报错
 3. 浏览器打开 `http://127.0.0.1:5173`
 4. 确认页面已加载，而不是空白页或持续报错页
-5. 继续完成默认模型配置
+5. 继续完成首次账号初始化和默认模型配置
 
 如果你在远程机器上部署：
 
@@ -123,17 +155,19 @@ flocks logs
 
 ![首次配置引导](../img/fresh_man_guide.png)
 
-首次进入 WebUI 后，立即进行新手引导任务
+首次进入 WebUI 后，先完成账号初始化，再进行新手引导和模型配置：
 
-1. 国内添加中国区免费模型，国外选择国际区免费模型
-2. 点击中国区用户领取API Key
-3. 保存验证模型
-4. 继续新手引导任务
-5. 也可以在模型管理界面配置其他模型api
+1. 首次打开 WebUI 时，先完成 `bootstrap-admin`，创建本机唯一的 `admin` 账号
+2. 进入模型管理，选择官方支持的模型供应商，或选择 `OpenAI Compatible` 接入兼容 OpenAI API 的服务
+3. 填写 Base URL、API Key 和模型名称
+4. 点击“测试连接”并确认调用链路可用
+5. 设置默认模型后，再继续新手引导任务；也可以在模型管理界面补充更多模型
 
 ![模型管理页面](../img/quick-start-models.png)
 
 上图是模型管理页面。这里既能看到模型供应商、模型列表，也能执行“测试连接”“设置默认模型”等关键动作。对第一次使用 Flocks 的用户来说，这一页通常比直接进入对话更重要。
+
+完成账号初始化后，再按下面的步骤配置模型。
 
 ### 第一步：添加模型供应商
 
@@ -162,6 +196,7 @@ flocks logs
 
 ### 首次配置完成检查清单
 
+- `bootstrap-admin` 已完成，`admin` 账号可正常登录
 - 至少有一个供应商已配置成功
 - 至少有一个模型已保存
 - 模型测试已经通过
