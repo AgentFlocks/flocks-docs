@@ -1,3 +1,11 @@
+<!--
+ * @Author: John Yin 10972267+john-yin2333@user.noreply.gitee.com
+ * @Date: 2026-04-19 02:36:11
+ * @LastEditors: John Yin 10972267+john-yin2333@user.noreply.gitee.com
+ * @LastEditTime: 2026-05-12 17:04:09
+ * @FilePath: /flocks-test/Users/yinzhongchao/Documents/flocks_docs/docs/md/overview.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 # 概览
 
 Flocks 是一套面向安全运营场景设计的 AI Native 平台。它不是单点问答助手，也不是只会执行固定规则的自动化引擎，而是把对话、分析、执行、编排、接入、沉淀和持续运营组织在同一套平台能力中，帮助团队把零散的安全工作串成可复用、可扩展的执行闭环。

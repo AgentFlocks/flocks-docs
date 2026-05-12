@@ -83,7 +83,7 @@ Rex 在背后会做这几件事：
 
 - 会话里的结果摘要和关键指标
 - Agent 输出的完整报告（如 `OneSec Inspection` + `TDP Inspection` 两份巡检报告）
-- 产出的文件位置（通常落在 [Workspace](/md/modules/workspace) 的 `artifacts/` 下）
+- 产出的文件位置（通常落在 [Workspace](/md/modules/workspace) 的 `outputs/` 下）
 
 ## 核心概念
 

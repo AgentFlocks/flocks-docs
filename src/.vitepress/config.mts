@@ -45,7 +45,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: '项目介绍', link: '/md/overview#项目介绍' },
-            { text: '奖励计划', link: '/md/overview#奖励计划' },
+            { text: '社区与反馈', link: '/md/overview#社区与反馈' },
             { text: '核心能力', link: '/md/overview#核心能力' },
             { text: '架构与组成', link: '/md/overview#架构与组成' },
             { text: '白皮书与公开资料', link: '/md/overview#白皮书与公开资料' },
@@ -104,6 +104,7 @@ export default defineConfig({
           items: [
             { text: '场景总览', link: '/md/scenarios' },
             { text: '告警研判', link: '/md/scenarios/alert-triage' },
+            { text: '告警降噪', link: '/md/scenarios/alert-noise-reduction' },
             { text: '主机巡检 / 应急取证', link: '/md/scenarios/host-forensics' },
             { text: '内网安全产品接入', link: '/md/scenarios/network-integration' },
             { text: '浏览器自动化与网页登录', link: '/md/scenarios/browser-automation' },

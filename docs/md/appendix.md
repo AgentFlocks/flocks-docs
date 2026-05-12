@@ -19,7 +19,7 @@
 
 ## CLI 参考
 
-执行 `flocks --help` 可以看到当前 CLI 的主命令。对日常使用最关键的是下面这些：
+执行 `flocks --help` 可以查看当前 CLI 主命令。对日常使用最关键的是下面这些：
 
 
 | 命令                                | 作用             | 常见场景                |
@@ -30,10 +30,13 @@
 | `flocks status`                   | 查看当前运行状态       | 判断服务是否真正启动          |
 | `flocks logs`                     | 查看后端和 WebUI 日志 | 排查启动、模型、工具和页面问题     |
 | `flocks update`                   | 升级到最新版本        | 页面升级或手动升级之外的 CLI 入口 |
+| `flocks tui`                      | 启动终端交互界面      | 无浏览器环境、终端集中操作         |
 | `flocks task`                     | 管理任务中心相关能力     | 队列任务、定时任务           |
 | `flocks session`                  | 管理会话           | 导出、排查或批量处理会话        |
 | `flocks mcp`                      | 管理 MCP 服务      | MCP 接入、状态检查         |
 | `flocks skills`                   | 管理 Skills      | 技能安装、启用和查看          |
+| `flocks admin`                    | 管理管理员能力        | 用户和管理员相关操作           |
+| `flocks browser`                  | 使用内置浏览器运行时    | CDP 浏览器自动化排障         |
 | `flocks export` / `flocks import` | 导出或导入会话数据      | 迁移和备份               |
 | `flocks stats`                    | 查看使用统计         | 快速确认运行数据            |
 
@@ -58,7 +61,7 @@ flocks restart
 `flocks.json` 或示例配置里的几个高频配置域，可以先按职责来理解，而不是逐个字段死记。
 
 
-| 配置域              | 作用               | 你通常在什么时候改它                     |
+| 配置域              | 作用               | 常见修改场景                     |
 | ---------------- | ---------------- | ------------------------------ |
 | `provider`       | 定义模型供应商、适配器和模型集合 | 接入 OpenAI Compatible、本地模型、自建网关 |
 | `api_services`   | 定义外部安全服务是否启用     | 接 TDP、ThreatBook、Qingteng 等平台  |
@@ -70,14 +73,15 @@ flocks restart
 | `updater`        | 定义升级源和升级策略       | 调整 GitHub / Gitee 更新来源时        |
 
 
-如果你是第一次配置 Flocks，优先掌握 `provider`、`channels` 和 `api_services` 就足够；其余配置更适合在扩展接入或团队部署阶段再深入。
+如果是首次配置 Flocks，优先掌握 `provider`、`channels` 和 `api_services` 即可；其余配置更适合在扩展接入、远程部署或团队化运行阶段深入。
 
 ## API 参考
 
-首版文档暂时不手写一份低价值的接口清单，而是建议你从以下两个方向理解 Flocks API：
+Flocks 后端基于 FastAPI 提供 API 服务。完整接口定义以运行时 OpenAPI 为准：
 
-1. 从 WebUI 的实际页面行为反推常用接口
-2. 从后端路由或 OpenAPI 输出查看完整定义
+- Swagger UI：`http://127.0.0.1:8000/docs`
+- ReDoc：`http://127.0.0.1:8000/redoc`
+- OpenAPI JSON：`http://127.0.0.1:8000/openapi.json`
 
 对普通使用者来说，真正高频的 API 通常集中在：
 
@@ -87,8 +91,11 @@ flocks restart
 - Workflow 执行
 - 任务中心
 - 通道状态与配置
+- Workspace 文件管理
+- Auth / Admin / Notifications
+- Hooks、Hub 与 Update
 
-如果后续要补完整 API 文档，更推荐基于实际后端路由或 OpenAPI 自动生成，而不是手工维护一份容易过期的表格。
+若需要生成完整接口文档，建议基于当前版本的 OpenAPI 输出自动生成，避免手工维护接口清单导致版本漂移。
 
 ## 术语表
 

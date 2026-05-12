@@ -11,7 +11,7 @@
 | 大类 | 细类 | 文档链接 |
 | --- | --- | --- |
 | 概览 | 项目介绍 | [项目介绍](md/overview.md) |
-| 概览 | 奖励计划 | [奖励计划](md/overview.md) |
+| 概览 | 社区与反馈 | [社区与反馈](md/overview.md) |
 | 概览 | 核心能力 | [核心能力](md/overview.md) |
 | 概览 | 架构与组成 | [架构与组成](md/overview.md) |
 | 概览 | 白皮书与公开资料 | [白皮书与公开资料](md/overview.md) |
@@ -31,12 +31,12 @@
 | 主模块 | 工具清单 / MCP | [工具清单 / MCP](md/modules.md) |
 | 主模块 | 模型清单 | [模型清单](md/modules.md) |
 | 主模块 | Skills 技能库 | [Skills 技能库](md/modules.md) |
-| 主模块 | 权限与监控 | [权限与监控](md/modules.md) |
 | 模型与接入 | 模型配置 | [模型配置](md/integrations.md) |
 | 模型与接入 | 本地与第三方模型接入 | [本地与第三方模型接入](md/integrations.md) |
 | 模型与接入 | 模型报错排查 | [模型报错排查](md/integrations.md) |
 | 模型与接入 | Provider 与 API Services 配置 | [Provider 与 API Services 配置](md/integrations.md) |
 | 场景案例 | 告警研判 | [告警研判](md/scenarios.md) |
+| 场景案例 | 告警降噪 | [告警降噪](md/scenarios/alert-noise-reduction.md) |
 | 场景案例 | 主机巡检 | [主机巡检](md/scenarios.md) |
 | 场景案例 | 内网安全产品接入 | [内网安全产品接入](md/scenarios.md) |
 | 场景案例 | 浏览器自动化与网页登录 | [浏览器自动化与网页登录](md/scenarios.md) |

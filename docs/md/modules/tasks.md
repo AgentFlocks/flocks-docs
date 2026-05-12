@@ -152,7 +152,7 @@ Rex 在任务中心创建：
 
 ### 任务产出在哪里？
 
-通常在 [Workspace](/md/modules/workspace) 的 `artifacts/` 下。如果任务执行的是 Workflow，会按 Workflow 的产出约定存放；如果执行的是 Agent，Agent 通常会自己选定输出文件位置并写入。
+通常在 [Workspace](/md/modules/workspace) 的 `outputs/` 下。如果任务执行的是 Workflow，会按 Workflow 的产出约定存放；如果执行的是 Agent，Agent 通常会根据任务上下文选定输出文件位置并写入。
 
 ### 一个任务挂了会影响其他任务吗？
 
@@ -176,4 +176,4 @@ Rex 在任务中心创建：
 - [场景案例 · 告警研判](/md/scenarios/alert-triage#持续运行从做一次到常态化) — 最典型的任务中心落地
 - [场景案例 · 互联网资产测绘](/md/scenarios/asset-discovery#持续运行资产-diff-任务) — 资产 diff 任务
 
-<!-- TODO: 嵌入定时任务配置操作演示视频 -->
+操作演示视频将在发布物料稳定后补充到本页。

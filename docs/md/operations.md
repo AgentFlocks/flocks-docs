@@ -204,7 +204,7 @@ Docker 用户的升级思路更直接：
 - **CLI**：`flocks status` / `flocks logs` 看进程与日志
 - **任务中心**：定时任务的运行状态、成功率、历史产物，参见 [任务中心](/md/modules/tasks)
 - **后端日志**：`~/.flocks/logs/backend.log` 查工具调用、模型调用、会话异常
-- **Workspace 产物**：`artifacts/` 目录下工作流和 Agent 留下的中间结果（定位"有没有跑、跑到哪一步"比日志更直接）
+- **Workspace 产物**：`outputs/` 目录下工作流和 Agent 留下的中间结果（定位"有没有跑、跑到哪一步"比日志更直接）
 
 ### 运行治理的推荐顺序
 

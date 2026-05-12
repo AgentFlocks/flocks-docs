@@ -1,28 +1,31 @@
-<!--
- * @Author: John Yin 10972267+john-yin2333@user.noreply.gitee.com
- * @Date: 2026-04-19 02:36:36
- * @LastEditors: John Yin 10972267+john-yin2333@user.noreply.gitee.com
- * @LastEditTime: 2026-04-21 11:44:22
- * @FilePath: /flocks-test/Users/yinzhongchao/Documents/flocks_docs/docs/md/scenarios.md
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
+# 场景案例
+
+本页按安全运营中的常见工作流整理 Flocks 的典型落地场景。每个场景都围绕输入、处理链路、产出和持续运营方式展开，便于在实际项目中选择合适的能力组合。
 
 - 演示视频：[查看](https://mp.weixin.qq.com/s/Y3TZH-4JxS1hiVtJk9RLzw?version=5.0.7.99844&platform=mac)
 - 发布会直播回放：[查看](https://weixin.qq.com/sph/AfahBdDcYd)
 
-## 六个核心场景
+## 核心场景
 
 ### [告警研判](/md/scenarios/alert-triage)
 
-从 TDP / NDR / XDR 等设备抓取告警 → 委派专职分析 Agent 逐条研判 → 结构化 JSON + 通道通知 → 转成每小时运行的定时任务。Flocks 最容易落地、最先产生价值的场景。
+从 TDP / NDR / XDR 等设备抓取告警，委派专职分析 Agent 逐条研判，输出结构化 JSON 并通过通道通知，随后可固化为周期性任务。这是 Flocks 最容易落地并形成持续价值的场景之一。
 
 > 典型输出：结构化研判结果 · JSON 报告 · 企微 / 钉钉通知
 
 ---
 
+### [告警降噪](/md/scenarios/alert-noise-reduction)
+
+对 TDP / NDR / XDR 等设备产生的大量告警进行过滤、聚合和初步分级。该场景通常需要部署在云主机或内网虚拟机上，确保设备 Syslog 或 API 数据链路能够稳定到达 Flocks。
+
+> 典型输出：重复告警合并 · 高优先级告警摘要 · 通道通知
+
+---
+
 ### [主机巡检 / 应急取证](/md/scenarios/host-forensics)
 
-主机巡检 Agent 上机，先跑基线，再进入深度调查。**命令白名单 / 黑名单 / 人工逐条确认**机制保证高危操作不误伤。最终产出带完整时间线的入侵报告。
+主机巡检 Agent 先执行基线检查，再根据异常进入深度调查。命令白名单、黑名单和人工逐条确认机制用于控制高危操作风险，最终产出包含时间线和证据链的调查报告。
 
 > 典型输出：基线报告 · 入侵时间线 · IoC / 矿池地址 / 持久化手段
 
@@ -30,7 +33,7 @@
 
 ### [内网安全产品接入](/md/scenarios/network-integration)
 
-把 TDP / NDR / HIDS / EDR / 情报源等设备接进 Flocks。**推荐优先级：API > 日志推送 > 浏览器**。给 Rex 一份 API 文档 → 自动生成工具 + 自动验证 + 自动调试。
+将 TDP / NDR / HIDS / EDR / 情报源等系统接入 Flocks。推荐优先级为 API、日志推送、浏览器兜底。提供 API 文档后，Rex 可以辅助生成工具、验证调用链路并完成调试。
 
 > 典型输出：可复用的 API 工具 · MCP 接入 · Tools 目录沉淀
 
@@ -38,7 +41,7 @@
 
 ### [浏览器自动化与网页登录](/md/scenarios/browser-automation)
 
-当设备没有 API，让 Rex 像分析员一样打开网页、登录、取数。**本机安装** vs **Docker** 的差异决定能不能做交互式登录。浏览器应该是进入桥梁，不是终点——发现的后端接口可以反向固化成稳定 API 工具。
+当设备没有 API 或 API 覆盖不足时，可由 Rex 打开网页、登录并提取页面数据。本机安装与 Docker 部署在交互式登录能力上存在差异；浏览器更适合作为接入桥梁，后续可将发现的后端接口固化为稳定 API 工具。
 
 > 典型输出：页面数据抓取 · 后端接口发现 · 从浏览器到 API 的沉淀路径
 
@@ -46,7 +49,7 @@
 
 ### [威胁情报与 IOC 研判](/md/scenarios/threat-intel)
 
-给 Rex 一个 IP / 域名 / 哈希，并行查 ThreatBook + VT + GreyNoise，交叉比对 + 企业上下文 → 一份带证据的研判结论。可扩展为批量研判和持续跟踪任务。
+提供 IP、域名或哈希后，Rex 可并行查询 ThreatBook、VT、GreyNoise 等情报源，结合企业上下文进行交叉比对，输出带证据的研判结论。该流程可扩展为批量研判和持续跟踪任务。
 
 > 典型输出：IOC 研判结论 · 批量 IOC 表格 · 重点 IOC 持续跟踪
 
@@ -54,7 +57,7 @@
 
 ### [互联网资产测绘](/md/scenarios/asset-discovery)
 
-给一个域名 / 企业名，多源测绘 + 归类聚合 + CMDB 关联 + 风险打标。配合"资产 diff 定时任务"，新增 / 变化资产自动通知。攻击面管理（ASM）的基础能力。
+提供域名或企业名后，平台可进行多源测绘、归类聚合、CMDB 关联和风险打标。结合资产 diff 定时任务，可在新增或变化资产出现时自动通知，是攻击面管理（ASM）的基础能力。
 
 > 典型输出：资产清单 · 分类视图 · 风险 Top N · 资产变化 diff
 
@@ -62,15 +65,15 @@
 
 ## 共同的产品逻辑
 
-这 6 个场景看起来差别很大，但在 Flocks 里遵循**同一套范式**：
+这些场景虽然面向不同问题域，但在 Flocks 中遵循同一套范式：
 
 1. **Rex 理解任务** → 拆步骤、选能力
 2. **调度专家 Agent / 工具 / Workflow** → 执行动作
-3. **落盘中间数据 + 结构化产出** → 不只是对话里的回答
-4. **通道通知 + 定时任务** → 从"做一次"升级为"常态化运营"
-5. **把经验沉淀为 Skill** → 下次相似任务直接套
+3. **落盘中间数据 + 结构化产出** → 形成可复核、可复用的结果
+4. **通道通知 + 定时任务** → 从一次性处理升级为常态化运营
+5. **把经验沉淀为 Skill** → 让相似任务具备可复用方法
 
-所有场景案例本质是同一个骨架在不同问题域的投影——这也是把 Flocks 称为 **AI-Native SecOps 平台**、而不是"某一个 AI 功能"的原因。
+场景案例本质上是同一套能力骨架在不同问题域中的应用，这也是 Flocks 被定位为 AI-Native SecOps 平台，而不是单一 AI 功能的原因。
 
 ---
 

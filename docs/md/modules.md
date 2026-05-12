@@ -1,6 +1,6 @@
 # 主模块
 
-这一页按 WebUI 的实际导航整理 Flocks 的核心功能模块。可以把它们看成同一套平台的不同工作面：**Agent 决定谁来做、Workflow 决定怎么做、工具决定动作本身、任务中心决定何时持续做、Workspace 决定项目边界、Skills 决定经验如何复用、模型清单决定背后用哪套大脑**。
+这一页按 WebUI 的实际导航整理 Flocks 的核心功能模块。各模块共同构成平台化安全运营能力：Agent 定义执行角色，Workflow 定义稳定流程，工具定义可执行动作，任务中心负责调度与持续运行，Workspace 管理项目边界和产物，Skills 沉淀可复用经验，模型清单管理底层模型资源。
 
 WebUI 主导航里，这些模块分两组呈现：
 
@@ -28,7 +28,7 @@ Skill、Agent / Subagent 与 Workflow 都用于承载具体任务能力，核心
 
 组合设计应保持克制。一般不建议为了单一任务同时混合 Workflow、Agent / Subagent 和 Skill；除非任务本身确实存在清晰的分层边界和编排收益，否则过早组合多种机制容易增加理解、调试和维护成本，形成不必要的过度设计。
 
-## 七个核心模块
+## 核心模块
 
 ### [Agent 智能体](/md/modules/agents)
 
@@ -40,7 +40,7 @@ Skill、Agent / Subagent 与 Workflow 都用于承载具体任务能力，核心
 
 ### [Workflow 工作流](/md/modules/workflow)
 
-把动作组织成稳定剧本。区别于 Dify / N8N 的手工拖拽，Flocks 的 Workflow 是**语言生成 + 自动校验 + 单点 / 集成测试**——Rex 搭完架子后还会逐节点跑测试数据，通过后才算完成。
+把动作组织成稳定剧本。Flocks 的 Workflow 支持通过自然语言生成，并在生成后执行自动校验、单节点测试和集成测试，适合沉淀标准化安全运营流程。
 
 > 典型用法：NDR 告警研判工作流 · 钓鱼邮件处置剧本 · 固定类型告警标准处置
 
@@ -56,7 +56,7 @@ Skill、Agent / Subagent 与 Workflow 都用于承载具体任务能力，核心
 
 ### [Workspace](/md/modules/workspace)
 
-项目级组织边界。承载插件、工作流、技能、配置、任务产出和项目上下文——工作流生成的测试数据、Agent 的巡检报告、结构化 JSON 都会进 `artifacts/` 目录下。
+项目级组织边界。承载插件、工作流、技能、配置、任务产出和项目上下文。工作流生成的测试数据、Agent 巡检报告和结构化 JSON 通常会进入 Workspace 的 `outputs/` 目录。
 
 > 典型用法：按客户 / 按项目隔离能力 · 产出物归档 · 跨会话引用同一批产物
 
@@ -64,7 +64,7 @@ Skill、Agent / Subagent 与 Workflow 都用于承载具体任务能力，核心
 
 ### [工具清单 / MCP](/md/modules/tools)
 
-平台可直接调用的执行能力：内置工具、API 工具、本地工具、MCP 服务。**MCP 已整合进工具清单页**，不再是独立一级菜单。支持一句话接入：给 Rex 一份 API 文档或 MCP 地址，平台自动生成工具 + 验证 + 调试。
+平台可直接调用的执行能力包括内置工具、API 工具、本地工具和 MCP 服务。MCP 已整合进工具清单页，不再是独立一级菜单。用户提供 API 文档或 MCP 地址后，Rex 可以辅助生成工具并执行验证调试。
 
 > 典型用法：快速接入 VT / ThreatBook / GreyNoise · 企业内部 API 统一包装 · 外部 MCP 服务接入
 
@@ -94,7 +94,7 @@ Skill、Agent / Subagent 与 Workflow 都用于承载具体任务能力，核心
 4. 在 [任务中心](/md/modules/tasks) 把一次性能力变成长期运行能力
 5. 在 [Skills](/md/modules/skills) 和 [Workspace](/md/modules/workspace) 中沉淀经验与项目资产
 
-理解了这条链路，再回头看各个页面，就不会把它们误解成零散的功能入口，而会更容易看清 Flocks 的平台化价值。
+理解这条链路后，可以更清晰地区分各功能入口的职责，并围绕业务场景组合使用平台能力。
 
 ---
 
