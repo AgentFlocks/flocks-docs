@@ -1,3 +1,11 @@
+<!--
+ * @Author: John Yin 10972267+john-yin2333@user.noreply.gitee.com
+ * @Date: 2026-05-12 18:17:53
+ * @LastEditors: John Yin 10972267+john-yin2333@user.noreply.gitee.com
+ * @LastEditTime: 2026-05-12 18:18:57
+ * @FilePath: /flocks-test/Users/yinzhongchao/Documents/flocks_docs/docs/md/scenarios/alert-noise-reduction.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 # 告警降噪
 
 告警降噪场景用于把 TDP / NDR / XDR 等设备产生的大量告警先做过滤、归并和初步分级，再交给告警研判、通道通知或任务中心处理。
@@ -26,36 +34,6 @@
 | --- | --- | --- |
 | Flocks 主动查询 TDP API | Flocks 服务器可以访问 TDP API 地址 | 适合主动拉取告警、定时查询、补充详情 |
 | TDP 通过 Syslog 推送 | TDP 设备可以访问 Flocks 服务器的 Syslog 接收地址和端口 | 适合持续接收日志流；通常要求 Flocks 部署在服务器上 |
-| 通道通知 | Flocks 服务器可以访问企微 / 钉钉 / 飞书等通道地址 | 用于发送降噪后的摘要和重点告警 |
-| 模型调用 | Flocks 服务器可以访问所选模型服务 | 私有化模型、内网模型或公网模型均可，按实际部署决定 |
 
-需要注意：Flocks 可以主动通过 API 查询 TDP 数据；但如果使用 TDP Syslog 日志推送，必须确保 TDP 设备的数据能够主动传输到 Flocks 服务器。若 TDP 到个人电脑不可达，日志就无法推送成功。
-
-## 推荐接入方式
-
-优先级建议如下：
-
-1. **API 主动查询**：Flocks 定时查询 TDP 告警数据，适合先验证降噪逻辑。
-2. **Syslog 推送**：TDP 将日志推送到 Flocks 服务器，适合持续接收和实时降噪。
-3. **混合模式**：Syslog 接收基础告警流，再通过 API 查询详情和上下文。
-
-## 典型产出
-
-- 重复告警合并结果
-- 同源 / 同目的 / 同攻击类型的聚合事件
-- 低价值告警过滤记录
-- 高优先级告警摘要
-- 推送到企微 / 钉钉 / 飞书的降噪结果
-
-## 边界说明
-
-| 问题 | 说明 |
-| --- | --- |
-| Syslog 能否推到个人电脑 | 通常不建议。需要设备侧能访问接收端地址，个人电脑网络和在线状态不稳定 |
-| 只有 API 能否做降噪 | 可以。Flocks 主动查询 TDP 数据后仍可做批量过滤、聚合和分级 |
-| 是否必须公网联网 | 不一定。关键是 Flocks 能访问模型、TDP API、通道服务，且 TDP 能访问 Flocks 的 Syslog 接收地址 |
-| 是否适合本地 PoC | 可以先用 API 主动查询做 PoC；涉及 Syslog 推送时建议使用服务器或内网虚拟机 |
-
----
 
 相关：[告警研判](/md/scenarios/alert-triage) · [内网安全产品接入](/md/scenarios/network-integration) · [任务中心](/md/modules/tasks) · [通道配置](/md/communication#通道配置)
