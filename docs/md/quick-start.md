@@ -88,7 +88,13 @@ docker run -d `
   ghcr.io/agentflocks/flocks:latest
 ```
 
-docker 国内镜像地址：[ghcr.nju.edu.cn/agentflocks/flocks:latest](https://ghcr.nju.edu.cn/agentflocks/flocks:latest)
+Docker 国内镜像地址：
+
+- 1ms GHCR：`docker pull ghcr.1ms.run/agentflocks/flocks:latest`
+- dockerproxy GHCR：`docker pull ghcr.dockerproxy.net/agentflocks/flocks:latest`
+- gh-proxy prefix：`docker pull docker.gh-proxy.com/ghcr.io/agentflocks/flocks:latest`
+- milu GHCR：`docker pull ghcr.milu.moe/agentflocks/flocks:latest`
+- NJU GHCR：`docker pull ghcr.nju.edu.cn/agentflocks/flocks:latest`
 
 需要注意的是，Docker 更适合服务化使用，不适合依赖本机交互式浏览器登录的场景。如果你的任务高度依赖网页登录和人工交互，终端安装更合适。镜像中的 `EXPOSE` 仅用于声明容器端口，实际仍需要 `-p 8000:8000 -p 5173:5173` 才能从宿主机浏览器访问服务。
 
