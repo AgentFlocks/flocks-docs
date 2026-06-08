@@ -2,7 +2,7 @@
  * @Author: John Yin 10972267+john-yin2333@user.noreply.gitee.com
  * @Date: 2026-06-09 00:13:22
  * @LastEditors: John Yin 10972267+john-yin2333@user.noreply.gitee.com
- * @LastEditTime: 2026-06-09 00:16:31
+ * @LastEditTime: 2026-06-09 00:25:47
  * @FilePath: /flocks-test/Users/yinzhongchao/Documents/flocks_docs/docs/md/channels/weixin.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -67,9 +67,8 @@
 
 ## 补充说明
 
-- 微信通道当前通过 iLink Bot 长轮询接入，不需要额外配置公网回调地址。
+- 如需在 Flocks 页面、任务中心或 Workflow 中主动向微信发送消息，需要先建立会话绑定并指定目标 `session_id`。
 - 若扫码成功但消息无法收发，优先检查 `Token`、`Account ID` 和 `baseUrl` 是否已正确保存。
-- 某些账号类型可能无法接收普通微信群事件；如群消息未进入 Flocks，可先用私信链路验证。
 - 高级配置中的 `sendChunkDelay` 用于控制长消息分段发送间隔；`dataDir` 用于保存状态文件和媒体缓存。
 
 ---

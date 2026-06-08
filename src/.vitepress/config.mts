@@ -38,7 +38,7 @@ export default defineConfig({
       '/md/': [
         {
           text: '1. 认识 Flocks',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: '1.1 项目介绍', link: '/md/overview#项目介绍' },
             { text: '1.2 社区与反馈', link: '/md/overview#社区与反馈' },
@@ -49,7 +49,7 @@ export default defineConfig({
         },
         {
           text: '2. 快速开始',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: '2.1 安装与快速开始', link: '/md/quick-start#安装与快速开始' },
             { text: '2.2 服务启动与访问', link: '/md/quick-start#服务启动与访问' },
@@ -65,6 +65,7 @@ export default defineConfig({
             {
               text: '3.3 通道配置',
               link: '/md/communication-channels',
+              collapsed: true,
               items: [
                 { text: '3.3.1 钉钉配置', link: '/md/channels/dingtalk' },
                 { text: '3.3.2 飞书配置', link: '/md/channels/feishu' },
