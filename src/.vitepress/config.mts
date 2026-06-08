@@ -86,9 +86,10 @@ export default defineConfig({
             { text: '4.3 Workflow 工作流', link: '/md/modules/workflow' },
             { text: '4.4 任务中心', link: '/md/modules/tasks' },
             { text: '4.5 Workspace', link: '/md/modules/workspace' },
-            { text: '4.6 工具清单 / MCP', link: '/md/modules/tools' },
-            { text: '4.7 Skills 技能库', link: '/md/modules/skills' },
-            { text: '4.8 模型清单', link: '/md/llm_models' },
+            { text: '4.6 Flocks Hub 插件广场', link: '/md/modules/hub' },
+            { text: '4.7 工具清单 / MCP', link: '/md/modules/tools' },
+            { text: '4.8 Skills 技能库', link: '/md/modules/skills' },
+            { text: '4.9 模型清单', link: '/md/llm_models' },
           ],
         },
         {

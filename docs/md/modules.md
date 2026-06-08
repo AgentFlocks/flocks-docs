@@ -1,11 +1,11 @@
 # 功能模块
 
-这一页按 WebUI 的实际导航整理 Flocks 的核心功能模块。各模块共同构成平台化安全运营能力：Agent 定义执行角色，Workflow 定义稳定流程，工具定义可执行动作，任务中心负责调度与持续运行，Workspace 管理项目边界和产物，Skills 沉淀可复用经验，模型清单管理底层模型资源。
+这一页按 WebUI 的实际导航整理 Flocks 的核心功能模块。各模块共同构成平台化安全运营能力：Agent 定义执行角色，Workflow 定义稳定流程，任务中心负责调度与持续运行，Workspace 管理项目边界和产物，Flocks Hub 负责插件分发与安装，工具定义可执行动作，Skills 沉淀可复用经验，模型清单管理底层模型资源。
 
 WebUI 主导航里，这些模块分两组呈现：
 
 - **AI 工作台**：[会话管理](/md/overview#会话管理与主交互面) · [任务中心](/md/modules/tasks) · [Workspace](/md/modules/workspace)
-- **Agent 工作室**：[Agent 智能体](/md/modules/agents) · [Workflow 工作流](/md/modules/workflow) · [Skills 技能库](/md/modules/skills) · [工具清单 / MCP](/md/modules/tools) · [模型清单](/md/llm_models) · [通道配置](/md/communication)
+- **Agent 工作室**：[Agent 智能体](/md/modules/agents) · [Workflow 工作流](/md/modules/workflow) · [Flocks Hub 插件广场](/md/modules/hub) · [Skills 技能库](/md/modules/skills) · [工具清单 / MCP](/md/modules/tools) · [模型清单](/md/llm_models) · [通道配置](/md/communication)
 
 ## 能力选择原则
 
@@ -59,6 +59,14 @@ Skill、Agent / Subagent 与 Workflow 都用于承载具体任务能力，核心
 项目级组织边界。承载插件、工作流、技能、配置、任务产出和项目上下文。工作流生成的测试数据、Agent 巡检报告和结构化 JSON 通常会进入 Workspace 的 `outputs/` 目录。
 
 > 典型用法：按客户 / 按项目隔离能力 · 产出物归档 · 跨会话引用同一批产物
+
+---
+
+### [Flocks Hub 插件广场](/md/modules/hub)
+
+Flocks Hub 是平台内置的"插件广场 / 能力分发层"。它把 Skill、Agent、Tool、Device、Workflow 这些可安装能力统一放到一个入口中，支持浏览、筛选、预览详情、安装、更新和卸载。相比直接在文件系统里手动拷贝插件，Hub 更适合做标准化分发、版本管理和本机快速启用。
+
+> 典型用法：安装官方 Skill / Agent 包 · 预览 workflow.json 再决定是否启用 · 统一更新本地插件版本
 
 ---
 
