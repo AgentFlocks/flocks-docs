@@ -149,7 +149,7 @@ Workflow 的 `.json` 可以导入导出，方便在不同 Workspace 之间迁移
 理论上 Rex 会自动调试。如果它自己调了几次还没通过，通常是：
 
 - 所需工具或 MCP 没接入（参见 [工具清单](/md/modules/tools)）
-- 模型能力不足以理解某个节点的指令（参见 [模型报错排查](/md/integrations#模型报错排查)）
+- 模型能力不足以理解某个节点的指令（参见 [模型报错排查](/md/llm_models#模型报错排查)）
 - 数据 schema 缺少必要字段（检查输入源）
 
 ### 工作流执行太慢怎么办？
@@ -188,7 +188,7 @@ Workflow 的 `.json` 可以导入导出，方便在不同 Workspace 之间迁移
 - [工具清单 / MCP](/md/modules/tools) — Workflow 节点的执行工具来源
 - [任务中心](/md/modules/tasks) — 把 Workflow 固化成周期运行
 - [Workspace](/md/modules/workspace) — Workflow 定义、测试数据与产物的存放位置
-- [场景案例 · 告警研判](/md/scenarios/alert-triage) — 典型 NDR 工作流走读
-- [场景案例 · 威胁情报与 IOC 研判](/md/scenarios/threat-intel) — 批量 IOC 研判工作流
+- [场景实践 · 告警研判](/md/scenarios/alert-triage) — 典型 NDR 工作流走读
+- [场景实践 · 威胁情报与 IOC 研判](/md/scenarios/threat-intel) — 批量 IOC 研判工作流
 
 操作演示视频将在发布物料稳定后补充到本页。

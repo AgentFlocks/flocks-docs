@@ -1,10 +1,11 @@
 # Quick Start
 
-本页面向第一次接触 Flocks 的用户，目标不是解释所有细节，而是帮助你以最短路径完成三件事：安装、启动、完成首次配置。只要这三步走通，你就可以进入会话、工作流和系统接入等后续能力。
+本页是 Flocks 文档中**唯一的完整安装手册**。目标是帮第一次接触 Flocks 的用户以最短路径完成三件事：安装、启动、首次配置。  
+如果你需要查找安装路径、启动、配置、排障入口，先从本页起步，再按场景转到其他文档。
 
 ## 安装与快速开始
 
-Flocks 当前有两条主要部署路径：终端安装和 Docker 安装。Windows x64 用户在终端安装之外，也可以选择 EXE 安装包完成图形化安装。
+Flocks 支持多种安装方式。第一次使用建议优先选择命令行安装；如果你需要查看或修改源码，可以选择源码安装；Windows x64 用户也可以使用 EXE 安装包；服务器或标准化环境更适合 Docker。
 
 #### 系统要求
 - Ubuntu ≥20.04 / Debian ≥10
@@ -13,25 +14,37 @@ Flocks 当前有两条主要部署路径：终端安装和 Docker 安装。Windo
 
 | 方式 | 适合场景 | 说明 |
 | --- | --- | --- |
-| 终端安装 | 推荐给大多数用户 | 更适合本地开发、完整交互和后续排障 |
-| Windows 安装包 | Windows x64 用户 | 通过安装向导完成安装，当前为 Beta |
-| Docker 安装 | 想快速起服务或做环境隔离 | 开箱即用，但 `agent-browser` 的 headed 模式暂不可用 |
+| 命令行安装 | 推荐给大多数用户 | 最快完成安装，适合 macOS / Linux / Windows |
+| 源码安装 | 需要查看或修改源码 | 更适合开发、完整交互和后续排障 |
+| Windows EXE 安装包 | Windows x64 用户 | 通过安装向导完成图形化安装 |
+| Docker 安装 | 容器化部署或环境隔离 | 开箱即用，但 `agent-browser` headed 模式暂不可用 |
 
-### 推荐路径 1：终端安装
+### 推荐路径 1：命令行安装
 
-如果你希望获得完整的 WebUI、本机浏览器能力和更好的调试体验，优先选择终端安装。
+如果你希望最快完成安装，优先选择命令行安装。脚本会在当前目录下创建 `./flocks` 并完成安装。
 
-中国大陆环境建议优先使用 Gitee 安装入口：
+中国大陆环境默认推荐使用 Gitee 上的 `install_zh` 一键安装脚本。
+
+macOS / Linux
 
 ```bash
 curl -fsSL https://gitee.com/flocks/flocks/raw/main/install_zh.sh | bash
 ```
 
-Windows 环境建议使用管理员 PowerShell 执行：
+Windows PowerShell（Administrator）
 
 ```powershell
 powershell -c "irm https://gitee.com/flocks/flocks/raw/main/install_zh.ps1 | iex"
 ```
+
+安装完成后，进入项目目录并启动服务：
+
+```bash
+cd flocks
+flocks start
+```
+
+### 推荐路径 2：源码安装
 
 如果你希望先查看源码，再自己执行安装脚本，可以采用源码安装：
 
@@ -41,13 +54,19 @@ cd flocks
 sh ./scripts/install_zh.sh
 ```
 
-Windows 环境建议用管理员 PowerShell 执行对应脚本：
+Windows PowerShell（Administrator）
 
 ```powershell
 powershell -ep Bypass -File .\scripts\install_zh.ps1
 ```
 
-### 推荐路径 2：Windows 安装包（EXE，Beta）
+源码安装完成后，可以直接启动服务：
+
+```bash
+flocks start
+```
+
+### 推荐路径 3：Windows EXE 安装包
 
 如果你使用 Windows x64，可以从 [GitHub Releases](https://github.com/AgentFlocks/flocks/releases) 下载 `FlocksSetup-<tag>.exe` 安装包，并按安装向导完成安装。
 
@@ -59,7 +78,9 @@ flocks start
 
 如果你选择在终端启动，建议安装完成后新开 PowerShell 或命令行窗口，确保新的 `PATH` 等环境变量已经生效。
 
-### 推荐路径 3：Docker 安装
+### 推荐路径 4：Docker 安装
+
+> Docker 版本暂时不支持 `agent-browser` headed 模式。
 
 如果你更在意环境隔离或快速部署，可以直接拉取镜像：
 
@@ -70,7 +91,7 @@ docker run -d \
   -e TZ=Asia/Shanghai \
   -p 8000:8000 \
   -p 5173:5173 \
-  --shm-size 2gb \
+  --shm-size 4gb \
   -v "${HOME}/.flocks:/home/flocks/.flocks" \
   ghcr.io/agentflocks/flocks:latest
 ```
@@ -83,7 +104,7 @@ docker run -d `
   -e TZ=Asia/Shanghai `
   -p 8000:8000 `
   -p 5173:5173 `
-  --shm-size 2gb `
+  --shm-size 4gb `
   -v "${env:USERPROFILE}\.flocks:/home/flocks/.flocks" `
   ghcr.io/agentflocks/flocks:latest
 ```
@@ -96,7 +117,7 @@ Docker 国内镜像地址：
 - milu GHCR：`docker pull ghcr.milu.moe/agentflocks/flocks:latest`
 - NJU GHCR：`docker pull ghcr.nju.edu.cn/agentflocks/flocks:latest`
 
-需要注意的是，Docker 更适合服务化使用，不适合依赖本机交互式浏览器登录的场景。如果你的任务高度依赖网页登录和人工交互，终端安装更合适。镜像中的 `EXPOSE` 仅用于声明容器端口，实际仍需要 `-p 8000:8000 -p 5173:5173` 才能从宿主机浏览器访问服务。
+需要注意的是，Docker 更适合服务化使用，不适合依赖本机交互式浏览器登录的场景。如果你的任务高度依赖网页登录和人工交互，命令行安装或源码安装更合适。镜像中的 `EXPOSE` 仅用于声明容器端口，实际仍需要 `-p 8000:8000 -p 5173:5173` 才能从宿主机浏览器访问服务。
 
 ### 安装前的最低依赖
 
@@ -209,4 +230,4 @@ flocks start --server-host <ip> --webui-host <ip>
 - 默认模型已经设置
 - 首页引导状态已恢复正常
 
-如果以上都没问题，你就可以继续阅读主模块文档，进入会话管理、工作流、智能体和工具接入等功能。
+如果以上都没问题，你就可以继续阅读功能模块文档，进入会话管理、工作流、智能体和工具接入等功能。

@@ -34,9 +34,9 @@ Flocks 的做法是构建专门的设备巡检 Agent，对接各厂商管理 API
 
 | 依赖项 | 要求 |
 | --- | --- |
-| 模型 | 默认模型即可；巡检逻辑本身不重推理，模型主要用于"结果总结 + 异常判断"——参考 [模型配置](/md/integrations#模型配置) |
+| 模型 | 默认模型即可；巡检逻辑本身不重推理，模型主要用于"结果总结 + 异常判断"——参考 [模型配置](/md/llm_models) |
 | 设备 API | 各安全设备的管理 API 已接入 Flocks Tools——参考 [内网安全产品接入](/md/scenarios/network-integration) |
-| 通道 | 企微 / 钉钉 / 飞书任一通道已连通——参考 [通道配置](/md/communication#通道配置) |
+| 通道 | 企微 / 钉钉 / 飞书任一通道已连通——参考 [通道配置](/md/communication-channels) |
 | 任务中心 | 用于驱动每小时定时执行——参考 [任务中心](/md/modules/tasks) |
 | 基线阈值 | 建议预先写入 Skill：在线 / 离线判定标准、规则库过期天数、性能阈值 |
 
@@ -184,4 +184,4 @@ Rex 会在 [任务中心](/md/modules/tasks) 创建一条任务：
 
 ---
 
-相关：[场景总览](/md/scenarios) · [内网安全产品接入](/md/scenarios/network-integration) · [主机巡检 / 应急取证](/md/scenarios/host-forensics) · [任务中心](/md/modules/tasks) · [Skills 技能库](/md/modules/skills) · [通道配置](/md/communication#通道配置)
+相关：[场景总览](/md/scenarios) · [内网安全产品接入](/md/scenarios/network-integration) · [主机巡检 / 应急取证](/md/scenarios/host-forensics) · [任务中心](/md/modules/tasks) · [Skills 技能库](/md/modules/skills) · [通道配置](/md/communication-channels)

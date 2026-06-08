@@ -22,7 +22,7 @@
 
 - 要跑的 Workflow 在 [工作流列表](/md/modules/workflow) 里，并且通过了单点 + 集成测试
 - 或者要跑的 Agent 在 [Agent 列表](/md/modules/agents) 里，并且已经手动验证过一次
-- 模型、通道、工具等依赖都已就绪（参见 [模型清单](/md/integrations#模型配置) 和 [通道配置](/md/communication)）
+- 模型、通道、工具等依赖都已就绪（参见 [模型清单](/md/llm_models) 和 [通道配置](/md/communication)）
 
 ### 步骤 2：进入任务中心
 
@@ -96,7 +96,7 @@ Rex 会：
 
 任务产出通常需要通道外发。确保：
 
-- 通道已配置（参见 [通信配置](/md/communication)）
+- 通道已配置（参见 [部署与配置](/md/communication)）
 - 多群场景显式指定 `session ID`（参见 [企业微信 · 多群消息与 session ID](/md/channels/wecom#多群消息与-session-id) 或 [钉钉](/md/channels/dingtalk)、[飞书](/md/channels/feishu) 对应章节）
 
 ## 真实案例走读：NDR 告警研判每小时任务
@@ -171,9 +171,9 @@ Rex 在任务中心创建：
 - [Workflow 工作流](/md/modules/workflow) — 周期任务最常见的执行对象
 - [Agent 智能体](/md/modules/agents) — 当任务步骤较灵活时的执行对象
 - [Workspace](/md/modules/workspace) — 任务产物的落盘位置
-- [通信配置](/md/communication) — 任务结果的外发通道
+- [部署与配置](/md/communication) — 任务结果的外发通道
 - [运维与排障](/md/operations#权限与监控) — 定时任务的监控与排障
-- [场景案例 · 告警研判](/md/scenarios/alert-triage#持续运行从做一次到常态化) — 最典型的任务中心落地
-- [场景案例 · 互联网资产测绘](/md/scenarios/asset-discovery#持续运行资产-diff-任务) — 资产 diff 任务
+- [场景实践 · 告警研判](/md/scenarios/alert-triage#持续运行从做一次到常态化) — 最典型的任务中心落地
+- [场景实践 · 互联网资产测绘](/md/scenarios/asset-discovery#持续运行资产-diff-任务) — 资产 diff 任务
 
 操作演示视频将在发布物料稳定后补充到本页。

@@ -13,7 +13,7 @@ hero:
       text: 项目介绍
       link: /md/overview
     - theme: alt
-      text: 场景案例
+      text: 场景实践
       link: /md/scenarios
     - theme: alt
       text: GitHub 开源项目
@@ -43,13 +43,13 @@ features:
   - icon: 🔌
     title: 多模型多入口
     details: 同时支持本地 / 第三方模型接入，模型是平台级资源；WebUI / CLI / TUI / 消息通道共享同一套后端。
-    link: /md/integrations
-    linkText: 模型与接入
+    link: /md/llm_models
+    linkText: 模型配置
   - icon: 🛡️
     title: 安全运营场景落地
     details: 告警研判、主机巡检、内网安全产品接入、浏览器自动化等典型场景，均有可复用的最佳实践。
     link: /md/scenarios
-    linkText: 查看场景案例
+    linkText: 查看场景实践
 ---
 
 <div style="max-width: 960px; margin: 48px auto 0; padding: 0 24px;">
@@ -61,12 +61,27 @@ features:
 - 需要接入多个安全设备、API、网页控制台或内网系统的 **集成与落地团队**
 - 想把"分析一次问题"升级为"持续运行的能力"的 **架构与治理团队**
 
-## 文档怎么读
+## 按目标阅读
 
-1. 先读 [项目介绍](/md/overview) 了解 Flocks 的定位与核心能力
-2. 按 [快速开始](/md/quick-start) 在本机或 Docker 启动一个最小可用环境
-3. 根据实际需求选择 [通信配置](/md/communication)、[模型与接入](/md/integrations) 进行接入
-4. 结合 [主模块](/md/modules) 与 [场景案例](/md/scenarios) 把能力真正用起来
-5. 遇到问题时翻阅 [运维与排障](/md/operations)、[安全与规范](/md/security) 和 [附录](/md/appendix)
+### 我是新用户
+
+1. [认识 Flocks](/md/overview) 看清平台定位
+2. [快速开始](/md/quick-start) 跑通最小环境
+3. [首次配置](/md/quick-start#首次配置) 完成账号与模型基础配置
+4. 挑一个场景先落地： [告警研判](/md/scenarios/alert-triage) 或 [威胁情报](/md/scenarios/threat-intel)
+
+### 我要接入环境或配置
+
+1. 按部署与接入顺序完成 [部署与配置](/md/communication)
+2. 补齐模型与供应商： [模型配置](/md/llm_models) 和 [模型报错排查](/md/llm_models#模型报错排查)
+3. 配置消息通道：选择 [钉钉](/md/channels/dingtalk)、[飞书](/md/channels/feishu)、[企微](/md/channels/wecom) 配置页
+4. 对接内部工具： [工具清单 / MCP](/md/modules/tools)
+
+### 我要做安全运营场景
+
+1. 先理解能力图谱：[功能模块](/md/modules) 里的 Agent / Workflow / 任务中心
+2. 跳到对应场景： [告警研判](/md/scenarios/alert-triage)、[主机巡检](/md/scenarios/host-forensics)、[漏洞验证](/md/scenarios/vuln-verification)
+3. 把一次操作固化为任务：使用 [任务中心](/md/modules/tasks) 和 [运维与排障](/md/operations)
+4. 遇阻时查对应排障项： [安装排查](/md/operations#安装排查)、[升级异常处理](/md/operations#升级异常处理)
 
 </div>

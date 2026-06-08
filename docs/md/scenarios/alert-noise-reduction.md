@@ -36,4 +36,4 @@
 | TDP 通过 Syslog 推送 | TDP 设备可以访问 Flocks 服务器的 Syslog 接收地址和端口 | 适合持续接收日志流；通常要求 Flocks 部署在服务器上 |
 
 
-相关：[告警研判](/md/scenarios/alert-triage) · [内网安全产品接入](/md/scenarios/network-integration) · [任务中心](/md/modules/tasks) · [通道配置](/md/communication#通道配置)
+相关：[告警研判](/md/scenarios/alert-triage) · [内网安全产品接入](/md/scenarios/network-integration) · [任务中心](/md/modules/tasks) · [通道配置](/md/communication-channels)

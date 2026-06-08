@@ -66,4 +66,4 @@
 
 ---
 
-相关：[通道配置总览](/md/communication#通道配置) · [钉钉通道配置](/md/channels/dingtalk) · [企业微信通道配置](/md/channels/wecom)
+相关：[通道配置总览](/md/communication-channels) · [钉钉通道配置](/md/channels/dingtalk) · [企业微信通道配置](/md/channels/wecom)

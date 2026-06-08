@@ -1,11 +1,11 @@
-# 主模块
+# 功能模块
 
 这一页按 WebUI 的实际导航整理 Flocks 的核心功能模块。各模块共同构成平台化安全运营能力：Agent 定义执行角色，Workflow 定义稳定流程，工具定义可执行动作，任务中心负责调度与持续运行，Workspace 管理项目边界和产物，Skills 沉淀可复用经验，模型清单管理底层模型资源。
 
 WebUI 主导航里，这些模块分两组呈现：
 
 - **AI 工作台**：[会话管理](/md/overview#会话管理与主交互面) · [任务中心](/md/modules/tasks) · [Workspace](/md/modules/workspace)
-- **Agent 工作室**：[Agent 智能体](/md/modules/agents) · [Workflow 工作流](/md/modules/workflow) · [Skills 技能库](/md/modules/skills) · [工具清单 / MCP](/md/modules/tools) · [模型清单](/md/integrations#模型配置) · [通道配置](/md/communication)
+- **Agent 工作室**：[Agent 智能体](/md/modules/agents) · [Workflow 工作流](/md/modules/workflow) · [Skills 技能库](/md/modules/skills) · [工具清单 / MCP](/md/modules/tools) · [模型清单](/md/llm_models) · [通道配置](/md/communication)
 
 ## 能力选择原则
 
@@ -78,9 +78,9 @@ Skill、Agent / Subagent 与 Workflow 都用于承载具体任务能力，核心
 
 ---
 
-### [模型清单](/md/integrations#模型配置)
+### [模型清单](/md/llm_models)
 
-模型资源治理入口：管理 Provider、模型实例、默认模型和模型测试结果。首次配置 Flocks 必须先走通这里——配置顺序参见 [模型配置](/md/integrations#模型配置)，接入本地或第三方模型参见 [本地与第三方模型接入](/md/integrations#本地与第三方模型接入)，模型报错排查参见 [模型报错排查](/md/integrations#模型报错排查)。
+模型资源治理入口：管理 Provider、模型实例、默认模型和模型测试结果。首次配置 Flocks 必须先走通这里——配置顺序参见 [模型配置](/md/llm_models)，接入本地或第三方模型参见 [本地与第三方模型接入](/md/llm_models#本地与第三方模型接入)，模型报错排查参见 [模型报错排查](/md/llm_models#模型报错排查)。
 
 > 典型用法：首次默认模型配置 · 多模型按任务分配 · 本地 / 第三方兼容 OpenAI 接入
 
@@ -88,7 +88,7 @@ Skill、Agent / Subagent 与 Workflow 都用于承载具体任务能力，核心
 
 如果你是第一次理解 Flocks，可以用下面这条主线来记忆模块关系：
 
-1. 在 [模型清单](/md/integrations#模型配置) 完成默认模型配置
+1. 在 [模型清单](/md/llm_models) 完成默认模型配置
 2. 在 WebUI 的 **会话面板**向 `Rex` 提出目标（参见 [会话管理与主交互面](/md/overview#会话管理与主交互面)）
 3. 让 `Rex` 按需调用 [工具](/md/modules/tools)、委派 [Agent](/md/modules/agents) 或生成 [Workflow](/md/modules/workflow)
 4. 在 [任务中心](/md/modules/tasks) 把一次性能力变成长期运行能力
@@ -98,4 +98,4 @@ Skill、Agent / Subagent 与 Workflow 都用于承载具体任务能力，核心
 
 ---
 
-相关：[项目概览](/md/overview) · [快速开始](/md/quick-start) · [模型与接入](/md/integrations) · [通信配置](/md/communication) · [场景案例](/md/scenarios) · [运维与排障](/md/operations)
+相关：[项目概览](/md/overview) · [快速开始](/md/quick-start) · [模型配置](/md/llm_models) · [部署与配置](/md/communication) · [场景实践](/md/scenarios) · [运维与排障](/md/operations)

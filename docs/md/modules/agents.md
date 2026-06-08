@@ -16,7 +16,7 @@ Agent 是 Flocks 解决"谁来做这件事"的答案。工具回答"能做什么
 | [Workflow](/md/modules/workflow) | Agent 可被 Workflow 作为节点调用，也可以在执行中触发一条子 Workflow |
 | [Skills](/md/modules/skills) | Agent 可以加载 Skill 获得方法论；Skill 的创建本身也是 Agent 生成 |
 | [任务中心](/md/modules/tasks) | 把 Agent 固化成定时运行对象 |
-| [模型清单](/md/integrations#模型配置) | 不同 Agent 可绑定不同默认模型，按任务平衡成本和能力 |
+| [模型清单](/md/llm_models) | 不同 Agent 可绑定不同默认模型，按任务平衡成本和能力 |
 
 ## 适用场景
 
@@ -182,7 +182,7 @@ Agent 以目录 + `.md` 文件形式存放。具体位置见 [Workspace](/md/mod
 - [Skills 技能库](/md/modules/skills) — 把 Agent 的经验沉淀为可被其他 Agent 加载的方法
 - [工具清单 / MCP](/md/modules/tools) — Agent 分配工具的来源
 - [任务中心](/md/modules/tasks) — 把 Agent 固化成周期运行的数字员工
-- [场景案例 · 告警研判](/md/scenarios/alert-triage) — 告警分析子 Agent 的典型落地
-- [场景案例 · 主机巡检](/md/scenarios/host-forensics) — 主机巡检 Agent 在真实环境的走读
+- [场景实践 · 告警研判](/md/scenarios/alert-triage) — 告警分析子 Agent 的典型落地
+- [场景实践 · 主机巡检](/md/scenarios/host-forensics) — 主机巡检 Agent 在真实环境的走读
 
 <!-- TODO: 嵌入 create_sub_agent.mp4 操作演示视频 -->

@@ -101,7 +101,7 @@ Workspace 也是**项目级记忆**的承载位置。`memory/` 下的 `MEMORY.md
 
 ### Workspace 与模型 / 通道
 
-默认情况下 Workspace 跟随用户级模型 / 通道配置；如果你希望"**这个项目用私有化模型、那个项目用商用模型**"，可以在 Workspace 里做项目级覆盖。参见 [模型与接入](/md/integrations)。
+默认情况下 Workspace 跟随用户级模型 / 通道配置；如果你希望"**这个项目用私有化模型、那个项目用商用模型**"，可以在 Workspace 里做项目级覆盖。参见 [模型配置](/md/llm_models)。
 
 ## 常见问题
 
@@ -139,4 +139,4 @@ Workspace 也是**项目级记忆**的承载位置。`memory/` 下的 `MEMORY.md
 - [Agent](/md/modules/agents) / [Workflow](/md/modules/workflow) / [Skills](/md/modules/skills) / [工具](/md/modules/tools) — 都支持项目级定义
 - [任务中心](/md/modules/tasks) — 产物落到 Workspace `outputs/`
 - [运维与排障](/md/operations) — 产物查找、Docker 挂载、日志定位
-- [模型与接入](/md/integrations) — Workspace 可做项目级模型覆盖
+- [模型配置](/md/llm_models) — Workspace 可做项目级模型覆盖

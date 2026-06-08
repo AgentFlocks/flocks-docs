@@ -21,7 +21,6 @@
 | 通信配置 | 远程部署 | [远程部署](md/communication.md) |
 | 通信配置 | 网络与离线安装 | [网络与离线安装](md/communication.md) |
 | 通信配置 | WebUI / API 访问关系 | [WebUI / API 访问关系](md/communication.md) |
-| 通信配置 | 账号管理 | [账号管理](md/account-management.md) |
 | 通信配置 | 通道配置 | [通道配置](md/communication.md) |
 | 主模块 | 会话管理 | [会话管理](md/modules.md) |
 | 主模块 | Agent 智能体 | [Agent 智能体](md/modules.md) |
@@ -31,10 +30,9 @@
 | 主模块 | 工具清单 / MCP | [工具清单 / MCP](md/modules.md) |
 | 主模块 | 模型清单 | [模型清单](md/modules.md) |
 | 主模块 | Skills 技能库 | [Skills 技能库](md/modules.md) |
-| 模型与接入 | 模型配置 | [模型配置](md/integrations.md) |
-| 模型与接入 | 本地与第三方模型接入 | [本地与第三方模型接入](md/integrations.md) |
-| 模型与接入 | 模型报错排查 | [模型报错排查](md/integrations.md) |
-| 模型与接入 | Provider 与 API Services 配置 | [Provider 与 API Services 配置](md/integrations.md) |
+| 模型配置 | 模型配置 | [模型配置](md/llm_models.md) |
+| 模型配置 | 本地与第三方模型接入 | [本地与第三方模型接入](md/llm_models.md) |
+| 模型配置 | 模型报错排查 | [模型报错排查](md/llm_models.md) |
 | 场景案例 | 告警研判 | [告警研判](md/scenarios.md) |
 | 场景案例 | 告警降噪 | [告警降噪](md/scenarios/alert-noise-reduction.md) |
 | 场景案例 | 主机巡检 | [主机巡检](md/scenarios.md) |

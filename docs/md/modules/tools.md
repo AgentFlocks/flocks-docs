@@ -179,7 +179,7 @@ Rex 一步步做：
 
 ### 为什么测试通过但真实任务调不通？
 
-测试只验证最基础的连通性。真实任务会叠加更长的上下文、更大的输出、工具组合。参考 [模型报错排查](/md/integrations#模型报错排查) 的思路——先区分"所有工具都失败"还是"只这个工具失败"。
+测试只验证最基础的连通性。真实任务会叠加更长的上下文、更大的输出、工具组合。参考 [模型报错排查](/md/llm_models#模型报错排查) 的思路——先区分"所有工具都失败"还是"只这个工具失败"。
 
 ### Docker 场景下工具能正常用吗？
 
@@ -208,8 +208,8 @@ Rex 一步步做：
 - [Agent 智能体](/md/modules/agents) — 工具的主要调用者
 - [Workflow 工作流](/md/modules/workflow) — Workflow 节点可以绑定工具
 - [Skills 技能库](/md/modules/skills) — 可以承载"**使用这个工具的正确方式**"作为方法论
-- [模型与接入](/md/integrations) — Provider / API Services / MCP / 沙箱的配置域区分
-- [场景案例 · 内网安全产品接入](/md/scenarios/network-integration) — 多种工具接入方式的优先级
-- [场景案例 · 浏览器自动化](/md/scenarios/browser-automation) — 从浏览器到 API 的沉淀路径
+- [模型配置](/md/llm_models) — 工具调用、Agent 执行和 Workflow 运行依赖可用模型
+- [场景实践 · 内网安全产品接入](/md/scenarios/network-integration) — 多种工具接入方式的优先级
+- [场景实践 · 浏览器自动化](/md/scenarios/browser-automation) — 从浏览器到 API 的沉淀路径
 
 操作演示视频将在发布物料稳定后补充到本页。

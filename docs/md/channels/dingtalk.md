@@ -100,4 +100,4 @@
 
 ---
 
-相关：[通道配置总览](/md/communication#通道配置) · [飞书通道配置](/md/channels/feishu) · [企业微信通道配置](/md/channels/wecom)
+相关：[通道配置总览](/md/communication-channels) · [飞书通道配置](/md/channels/feishu) · [企业微信通道配置](/md/channels/wecom)

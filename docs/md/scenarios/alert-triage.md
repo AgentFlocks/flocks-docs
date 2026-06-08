@@ -35,10 +35,10 @@ Flocks 的做法是让主 Agent `Rex` 拉取原始告警、落盘中间数据、
 
 | 依赖项 | 要求 |
 | --- | --- |
-| 模型 | 已配置默认模型；推理型模型在复杂研判场景下效果更好。参考 [模型配置](/md/integrations#模型配置) |
+| 模型 | 已配置默认模型；推理型模型在复杂研判场景下效果更好。参考 [模型配置](/md/llm_models) |
 | 告警源接入 | 告警平台的 API 或网页控制台二选一——参考 [内网安全产品接入](/md/scenarios/network-integration) |
 | 工具 | 情报工具（ThreatBook / VT / GreyNoise）优先，用于补 IOC 上下文 |
-| 通道 | 企微 / 钉钉 / 飞书任一通道已连通——参考 [通道配置](/md/communication#通道配置) |
+| 通道 | 企微 / 钉钉 / 飞书任一通道已连通——参考 [通道配置](/md/communication-channels) |
 | 专家 Agent | 可选。项目内置了告警分析类子 Agent；若无，Rex 会用自身工具链直接分析 |
 
 ## 操作步骤（WebUI）
@@ -149,4 +149,4 @@ Rex 会自动在 **任务中心** 创建一条任务：
 
 ---
 
-相关：[场景总览](/md/scenarios) · [主机巡检 / 应急取证](/md/scenarios/host-forensics) · [内网安全产品接入](/md/scenarios/network-integration) · [威胁情报与 IOC 研判](/md/scenarios/threat-intel) · [任务中心](/md/modules/tasks) · [通道配置](/md/communication#通道配置)
+相关：[场景总览](/md/scenarios) · [主机巡检 / 应急取证](/md/scenarios/host-forensics) · [内网安全产品接入](/md/scenarios/network-integration) · [威胁情报与 IOC 研判](/md/scenarios/threat-intel) · [任务中心](/md/modules/tasks) · [通道配置](/md/communication-channels)
