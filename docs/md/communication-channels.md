@@ -1,24 +1,25 @@
 # 3.3 通道配置
 
-通道配置负责把 Flocks 的能力延伸到 IM 或外部触点。当前 WebUI 的通道页已经支持飞书、企业微信、Telegram 和钉钉等通道，并且允许分别查看启用状态和配置字段。
+通道配置负责把 Flocks 的能力延伸到 IM 或外部触点。当前 WebUI 的通道页已经支持飞书、企业微信、微信、Telegram 和钉钉等通道，并且允许分别查看启用状态和配置字段。
 
 ![通道配置页面](../img/communication-channels-overview.png)
 
 配置 IM 通道后，Flocks 可以覆盖下面这些典型使用场景：
 
-- 把研判结果主动发到企业微信群、钉钉群或其他消息触点
+- 把研判结果主动发到企业微信群、微信会话、钉钉群或其他消息触点
 - 让机器人在特定群或会话中接收消息
 - 把定时任务的结果直接推送给值班人员或运营团队
 
-## 3.3.1 三大平台配置入口
+## 3.3.1 四大平台配置入口
 
-不同 IM 平台的开发者后台流程差异较大，Flocks 将三大主流平台的完整接入指南拆成独立页面，按需查阅即可：
+不同 IM 平台的开发者后台流程差异较大，Flocks 将主流平台的接入指南拆成独立页面，按需查阅即可：
 
 - [钉钉通道配置](/md/channels/dingtalk)：企业内部应用 + 机器人 + 群内验证
 - [飞书通道配置](/md/channels/feishu)：飞书开放平台自建应用 + 权限 + App ID / App Secret
 - [企业微信通道配置](/md/channels/wecom)：企业微信管理后台 + 智能机器人 + Bot ID / Secret
+- [微信通道配置](/md/channels/weixin)：微信 iLink Bot 扫码登录 + Token / Account ID
 
-每个子页面都给出了从开发者后台到 Flocks 连接的完整步骤。多群投递与 `session ID` 的使用细节，放在 [企业微信通道配置](/md/channels/wecom#多群消息与-session-id) 中集中说明。
+每个子页面都给出了从开发者后台到 Flocks 连接的完整步骤。多群投递与 `session ID` 的使用细节，放在 [企业微信通道配置](/md/channels/wecom#多群消息与-session-id) 中集中说明；微信通道则通过 WebUI 内置的二维码登录直接获取 `Token` 与 `Account ID`。
 
 ## 3.3.2 使用方式
 
@@ -26,7 +27,7 @@
 
 ### 从 IM 中直接发消息
 
-在企业微信、飞书或钉钉等 IM 中向 Flocks 机器人发送消息后，Flocks 会在当前 IM 会话中回答。
+在企业微信、飞书、钉钉或微信等 IM 中向 Flocks 机器人发送消息后，Flocks 会在当前 IM 会话中回答。
 
 常见用法：
 

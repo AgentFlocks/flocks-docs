@@ -62,4 +62,4 @@
 
 ---
 
-相关：[通道配置总览](/md/communication-channels) · [钉钉通道配置](/md/channels/dingtalk) · [飞书通道配置](/md/channels/feishu)
+相关：[通道配置总览](/md/communication-channels) · [钉钉通道配置](/md/channels/dingtalk) · [飞书通道配置](/md/channels/feishu) · [微信通道配置](/md/channels/weixin)

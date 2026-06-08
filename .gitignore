@@ -2,6 +2,7 @@
 chat_history/
 data/
 faq/
+bug/
 
 # Node / VitePress 构建产物
 node_modules
