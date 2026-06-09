@@ -43,7 +43,7 @@ features:
   - icon: 🔌
     title: 多模型多入口
     details: 同时支持本地 / 第三方模型接入，模型是平台级资源；WebUI / CLI / TUI / 消息通道共享同一套后端。
-    link: /md/llm_models
+    link: /md/communication-models
     linkText: 模型配置
   - icon: 🛡️
     title: 安全运营场景落地
@@ -73,9 +73,9 @@ features:
 ### 我要接入环境或配置
 
 1. 按部署与接入顺序完成 [部署与配置](/md/communication)
-2. 补齐模型与供应商： [模型配置](/md/llm_models) 和 [模型报错排查](/md/llm_models#模型报错排查)
+2. 补齐模型与供应商： [模型配置](/md/communication-models) 和 [模型报错排查](/md/llm_models#模型报错排查)
 3. 配置消息通道：选择 [钉钉](/md/channels/dingtalk)、[飞书](/md/channels/feishu)、[企微](/md/channels/wecom)、[微信](/md/channels/weixin) 配置页
-4. 对接内部工具： [工具清单 / MCP](/md/modules/tools)
+4. 对接内部工具： [工具清单](/md/modules/tools)
 
 ### 我要做安全运营场景
 

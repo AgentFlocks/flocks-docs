@@ -56,6 +56,18 @@
 
 `session ID` 的作用是告诉系统消息到底该投递到哪个具体会话里。对于 **定时任务** 尤其重要——任务自动运行时，系统需要一个稳定的目标位置来发送分析结果。
 
+获取方式：
+
+1. 在目标企微群或私聊中问 Rex：`你的 sessionid 是什么？`
+2. 或发送 `/status`，查看当前绑定的 Session、Agent、模型和 IM 对话信息。
+3. 在 WebUI、另一个会话、任务中心或 Workflow 中使用这个 `session ID`：
+
+```text
+给 sessionid：<sessionID>，发送：今日巡检完成，发现 2 条高危告警。
+```
+
+Flocks 会根据 `session ID` 自动找到绑定的企微会话并发送消息。用户只需要保存和使用 Flocks 的 `session ID`，不需要关心企业微信内部如何标识群聊或私聊。如果该企微会话执行过 `/new`，会重新绑定新的 Session，后续推送应使用新的 `session ID`。
+
 ## 补充说明
 
 - 本文配图选自随附资料 [data/wecom-bot-guide.pdf](../../../data/wecom-bot-guide.pdf)，如需更完整的截图流程可直接查阅原 PDF。

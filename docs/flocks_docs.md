@@ -27,7 +27,7 @@
 | 主模块 | Workflow 工作流 | [Workflow 工作流](md/modules.md) |
 | 主模块 | 任务中心 | [任务中心](md/modules.md) |
 | 主模块 | Workspace | [Workspace](md/modules.md) |
-| 主模块 | 工具清单 / MCP | [工具清单 / MCP](md/modules.md) |
+| 主模块 | 工具清单 | [工具清单](md/modules.md) |
 | 主模块 | 模型清单 | [模型清单](md/modules.md) |
 | 主模块 | Skills 技能库 | [Skills 技能库](md/modules.md) |
 | 模型配置 | 模型配置 | [模型配置](md/llm_models.md) |

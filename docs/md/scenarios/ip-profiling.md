@@ -168,4 +168,4 @@ Agent 会：
 
 ---
 
-相关：[场景总览](/md/scenarios) · [告警研判](/md/scenarios/alert-triage) · [跨设备深度调查](/md/scenarios/cross-device-investigation) · [互联网资产测绘](/md/scenarios/asset-discovery) · [工具清单 / MCP](/md/modules/tools) · [Skills 技能库](/md/modules/skills)
+相关：[场景总览](/md/scenarios) · [告警研判](/md/scenarios/alert-triage) · [跨设备深度调查](/md/scenarios/cross-device-investigation) · [互联网资产测绘](/md/scenarios/asset-discovery) · [工具清单](/md/modules/tools) · [Skills 技能库](/md/modules/skills)
