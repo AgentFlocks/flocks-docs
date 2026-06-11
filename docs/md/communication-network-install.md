@@ -12,6 +12,7 @@
 docker pull ghcr.io/agentflocks/flocks:latest
 docker save ghcr.io/agentflocks/flocks:latest -o flocks-offline.tar
 ```
+国内拉取镜像参考：[推荐路径 4：Docker 安装](/md/quick-start#quick-start-recommend-path-4-docker)
 
 2. 将 `flocks-offline.tar` 拷贝到离线主机。
 

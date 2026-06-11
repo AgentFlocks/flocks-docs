@@ -78,6 +78,7 @@ flocks start
 
 如果你选择在终端启动，建议安装完成后新开 PowerShell 或命令行窗口，确保新的 `PATH` 等环境变量已经生效。
 
+<a id="quick-start-recommend-path-4-docker"></a>
 ### 推荐路径 4：Docker 安装
 
 > Docker 版本暂时不支持 `agent-browser` headed 模式。
