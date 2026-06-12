@@ -77,6 +77,8 @@ export default defineConfig({
               text: '3.4 模型配置',
               link: '/md/communication-models',
             },
+            { text: '3.5 文件与配置', link: '/md/communication-files-config' },
+            { text: '3.6 网络访问清单', link: '/md/communication-network-access' },
           ],
         },
         {
