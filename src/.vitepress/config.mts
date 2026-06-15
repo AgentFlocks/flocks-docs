@@ -92,7 +92,14 @@ export default defineConfig({
             { text: '4.5 Agent 智能体', link: '/md/modules/agents' },
             { text: '4.6 Skills 技能库', link: '/md/modules/skills' },
             { text: '4.7 Workflow 工作流', link: '/md/modules/workflow' },
-            { text: '4.8 设备管理', link: '/md/modules/devices' },
+            {
+              text: '4.8 设备管理',
+              link: '/md/modules/devices',
+              collapsed: true,
+              items: [
+                { text: '4.8.1 自定义设备接入', link: '/md/modules/devices/custom-device-integration' },
+              ],
+            },
             { text: '4.9 工具清单', link: '/md/modules/tools' },
             { text: '4.10 插件广场', link: '/md/modules/flocks-hub' },
             { text: '4.11 模型清单', link: '/md/llm_models' },
