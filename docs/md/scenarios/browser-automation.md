@@ -53,7 +53,7 @@ Flocks 的部署方式会直接决定浏览器场景可不可用：
 
 如果需要人工完成扫码、短信验证码或密码登录，再由 Flocks 继续操作，应优先采用本机安装。
 
-> 本机安装和 Docker 的对比详见 [快速开始的安装方式说明](/md/quick-start#安装与快速开始)。
+> 本机安装和 Docker 的对比详见 [快速开始的安装方式说明](/md/quick-start-install)。
 
 ## 操作步骤（WebUI）
 
@@ -157,4 +157,4 @@ Rex 会分步：
 
 ---
 
-相关：[场景总览](/md/scenarios) · [内网安全产品接入](/md/scenarios/network-integration) · [威胁情报与 IOC 研判](/md/scenarios/threat-intel) · [互联网资产测绘](/md/scenarios/asset-discovery) · [安装方式说明](/md/quick-start#安装与快速开始)
+相关：[场景总览](/md/scenarios) · [内网安全产品接入](/md/scenarios/network-integration) · [威胁情报与 IOC 研判](/md/scenarios/threat-intel) · [互联网资产测绘](/md/scenarios/asset-discovery) · [安装方式说明](/md/quick-start-install)

@@ -26,7 +26,7 @@ export default defineConfig({
 
     nav: [
       { text: '认识 Flocks', link: '/md/overview', activeMatch: '/md/overview' },
-      { text: '快速开始', link: '/md/quick-start', activeMatch: '/md/quick-start' },
+      { text: '快速开始', link: '/md/quick-start-install', activeMatch: '/md/quick-start' },
       { text: '部署与配置', link: '/md/communication', activeMatch: '/md/communication' },
       { text: '功能模块', link: '/md/modules', activeMatch: '/md/modules' },
       { text: '场景实践', link: '/md/scenarios', activeMatch: '/md/scenarios' },
@@ -36,24 +36,14 @@ export default defineConfig({
 
     sidebar: {
       '/md/': [
-        {
-          text: '1. 认识 Flocks',
-          collapsed: true,
-          items: [
-            { text: '1.1 项目介绍', link: '/md/overview#项目介绍' },
-            { text: '1.2 社区与反馈', link: '/md/overview#社区与反馈' },
-            { text: '1.3 核心能力', link: '/md/overview#核心能力' },
-            { text: '1.4 架构与组成', link: '/md/overview#架构与组成' },
-            { text: '1.5 白皮书与公开资料', link: '/md/overview#白皮书与公开资料' },
-          ],
-        },
+        { text: '1. 认识 Flocks', link: '/md/overview' },
         {
           text: '2. 快速开始',
           collapsed: true,
           items: [
-            { text: '2.1 安装与快速开始', link: '/md/quick-start#安装与快速开始' },
-            { text: '2.2 服务启动与访问', link: '/md/quick-start#服务启动与访问' },
-            { text: '2.3 首次配置', link: '/md/quick-start#首次配置' },
+            { text: '2.1 安装与快速开始', link: '/md/quick-start-install' },
+            { text: '2.2 服务启动与访问', link: '/md/quick-start-service' },
+            { text: '2.3 首次配置', link: '/md/quick-start-first-config' },
           ],
         },
         {
@@ -90,7 +80,14 @@ export default defineConfig({
             { text: '4.5 Agent 智能体', link: '/md/modules/agents' },
             { text: '4.6 Skills 技能库', link: '/md/modules/skills' },
             { text: '4.7 Workflow 工作流', link: '/md/modules/workflow' },
-            { text: '4.8 设备管理', link: '/md/modules/devices' },
+            {
+              text: '4.8 设备管理',
+              link: '/md/modules/devices',
+              collapsed: false,
+              items: [
+                { text: '4.8.1 自定义设备接入', link: '/md/modules/devices/custom-device-integration' },
+              ],
+            },
             { text: '4.9 工具清单', link: '/md/modules/tools' },
             { text: '4.10 插件广场', link: '/md/modules/flocks-hub' },
             { text: '4.11 模型清单', link: '/md/llm_models' },

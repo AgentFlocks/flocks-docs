@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /md/quick-start
+      link: /md/quick-start-install
     - theme: alt
       text: 项目介绍
       link: /md/overview
@@ -66,8 +66,8 @@ features:
 ### 我是新用户
 
 1. [认识 Flocks](/md/overview) 看清平台定位
-2. [快速开始](/md/quick-start) 跑通最小环境
-3. [首次配置](/md/quick-start#首次配置) 完成账号与模型基础配置
+2. [快速开始](/md/quick-start-install) 跑通最小环境
+3. [首次配置](/md/quick-start-first-config) 完成账号与模型基础配置
 4. 挑一个场景先落地： [告警研判](/md/scenarios/alert-triage) 或 [威胁情报](/md/scenarios/threat-intel)
 
 ### 我要接入环境或配置
