@@ -44,4 +44,4 @@ docker run -d \
 - [运维与排障](/md/operations)：服务状态、日志、任务与异常恢复
 - [场景补充：浏览器自动化适配性](/md/scenarios/browser-automation)：镜像/自动化接入细节
 
-如果你还未离线安装而是首次网络部署，可先参考 [安装与快速开始（完整安装与首次配置）](/md/quick-start)。 
+如果你还未离线安装而是首次网络部署，可先参考 [安装与快速开始](/md/quick-start-install)。

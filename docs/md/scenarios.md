@@ -89,4 +89,4 @@
 
 ---
 
-相关：[项目概览](/md/overview) · [快速开始](/md/quick-start) · [功能模块](/md/modules) · [部署与配置](/md/communication) · [任务中心](/md/modules#任务中心)
+相关：[项目概览](/md/overview) · [快速开始](/md/quick-start-install) · [功能模块](/md/modules) · [部署与配置](/md/communication) · [任务中心](/md/modules#任务中心)

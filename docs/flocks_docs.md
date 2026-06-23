@@ -15,9 +15,9 @@
 | 概览 | 核心能力 | [核心能力](md/overview.md) |
 | 概览 | 架构与组成 | [架构与组成](md/overview.md) |
 | 概览 | 白皮书与公开资料 | [白皮书与公开资料](md/overview.md) |
-| Quick Start | 安装与快速开始 | [安装与快速开始](md/quick-start.md) |
-| Quick Start | 服务启动与访问 | [服务启动与访问](md/quick-start.md) |
-| Quick Start | 首次配置 | [首次配置](md/quick-start.md) |
+| Quick Start | 安装与快速开始 | [安装与快速开始](md/quick-start-install.md) |
+| Quick Start | 服务启动与访问 | [服务启动与访问](md/quick-start-service.md) |
+| Quick Start | 首次配置 | [首次配置](md/quick-start-first-config.md) |
 | 通信配置 | 远程部署 | [远程部署](md/communication.md) |
 | 通信配置 | 网络与离线安装 | [网络与离线安装](md/communication.md) |
 | 通信配置 | WebUI / API 访问关系 | [WebUI / API 访问关系](md/communication.md) |
