@@ -89,6 +89,7 @@
 - [TDP 接入](/md/modules/devices/tdp-integration)：配置微步 TDP 的 `API Key`、`Secret` 和 `Base URL`。
 - [OneSEC 接入](/md/modules/devices/onesec-integration)：开启 OneSEC 开放 API 并复制 `api_key`、`secret`。
 - [天眼接入](/md/modules/devices/skyeye-integration)：配置奇安信天眼，注意 `Base URL` 必须带 `/skyeye` 后缀。
+- [ngtip 接入](/md/modules/devices/ngtip-integration)：配置微步 HVV 情报平台的情报查询和平台功能 API Key。
 
 ## 5. 使用建议
 
