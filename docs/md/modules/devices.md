@@ -83,15 +83,23 @@
 - [Workflow 工作流](/md/modules/workflow)：绑定固定流程。
 - [任务中心](/md/modules/tasks)：配置周期巡检或长期运行。
 
-## 4. 使用建议
+## 4. 设备接入指南
 
-### 4.1 API 优先，web2cli 补位
+- [自定义设备接入](/md/modules/devices/custom-device-integration)：接入未预置的设备、私有 API 或 Web 控制台。
+- [TDP 接入](/md/modules/devices/tdp-integration)：配置微步 TDP 的 `API Key`、`Secret` 和 `Base URL`。
+- [OneSEC 接入](/md/modules/devices/onesec-integration)：开启 OneSEC 开放 API 并复制 `api_key`、`secret`。
+- [天眼接入](/md/modules/devices/skyeye-integration)：配置奇安信天眼，注意 `Base URL` 必须带 `/skyeye` 后缀。
+- [ngtip 接入](/md/modules/devices/ngtip-integration)：配置微步 HVV 情报平台的情报查询和平台功能 API Key。
+
+## 5. 使用建议
+
+### 5.1 API 优先，web2cli 补位
 
 如果设备提供稳定 API，优先通过 API 工具接入。API 更适合长期运行、定时任务和批量处理。
 
 当 API 不完整、网页控制台能力更丰富时，可以用 web2cli 把关键页面动作沉淀成可执行能力，例如查看 License 到期、规则命中详情、设备健康页面等。
 
-### 4.2 设备 Skill 用来沉淀经验
+### 5.2 设备 Skill 用来沉淀经验
 
 设备 Skill 不等同于 Skills 页面里的完整技能管理入口，但它代表这个设备已经有对应的方法论资产。适合写入：
 
@@ -101,11 +109,11 @@
 - 常见异常处理建议。
 - 设备版本差异。
 
-### 4.3 与 SOC 设备巡检衔接
+### 5.3 与 SOC 设备巡检衔接
 
 设备管理负责接入和能力状态，SOC 设备巡检负责查看巡检运行结果。接入完成后，可以去 SOC 设备巡检页面查看设备巡检报告和运行结果。
 
-## 5. 相关模块
+## 6. 相关模块
 
 - [工具清单](/md/modules/tools)：维护设备 API 工具和 MCP 能力。
 - [Skills 技能库](/md/modules/skills)：维护设备方法论和巡检规范。
