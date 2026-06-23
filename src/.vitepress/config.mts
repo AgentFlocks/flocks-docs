@@ -67,6 +67,9 @@ export default defineConfig({
               text: '3.4 模型配置',
               link: '/md/communication-models',
             },
+            { text: '3.5 文件与配置', link: '/md/communication-files-config' },
+            { text: '3.6 网络访问清单', link: '/md/communication-network-access' },
+            { text: '3.7 Flocks 安全管控', link: '/md/communication-security-controls' },
           ],
         },
         {
@@ -83,7 +86,7 @@ export default defineConfig({
             {
               text: '4.8 设备管理',
               link: '/md/modules/devices',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: '4.8.1 自定义设备接入', link: '/md/modules/devices/custom-device-integration' },
               ],

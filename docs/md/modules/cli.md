@@ -31,7 +31,7 @@ CLI 适合服务启停、日志查看、任务管理、MCP 管理、Skill 安装
 | 命令组 | 作用 |
 | --- | --- |
 | `flocks start/stop/restart/status/logs` | 服务启停、状态和日志。 |
-| `flocks tui` / `flocks run` | 启动终端里的 CLI/TUI 会话界面。 |
+| `flocks tui` | 启动终端里的 TUI 会话界面。 |
 | `flocks browser` | 调用内置浏览器运行时。 |
 | `flocks session ...` | 会话列表、详情、删除、归档和恢复。 |
 | `flocks task ...` | 任务中心、队列、定时任务和任务重跑。 |
@@ -53,7 +53,6 @@ CLI 适合服务启停、日志查看、任务管理、MCP 管理、Skill 安装
 | `flocks status` | 查看后端和 WebUI 状态。 | `flocks status` |
 | `flocks logs` | 查看后端和 WebUI 日志。 | `flocks logs --backend -n 100` |
 | `flocks tui` | 启动 TUI 对话界面。 | `flocks tui --directory .` |
-| `flocks run` | 启动 CLI 对话界面，适合直接在终端里和 Rex 对话。 | `flocks run` |
 | `flocks browser` | 透传到内置浏览器运行时。 | `flocks browser --help` |
 | `flocks update` | 执行版本更新。 | `flocks update` |
 | `flocks serve` | 直接启动 Flocks API Server，隐藏命令，主要用于开发和调试。 | `flocks serve --host 127.0.0.1 --port 8000` |
@@ -67,9 +66,10 @@ CLI 适合服务启停、日志查看、任务管理、MCP 管理、Skill 安装
 - `flocks logs --backend`：只看后端日志。
 - `flocks logs --webui`：只看 WebUI 日志。
 - `flocks logs --follow/--no-follow`：是否持续跟随日志。
-- `flocks run`：启动终端 CLI 对话界面。
 - `flocks tui --session <sessionID>`：继续指定会话。
 - `flocks tui --auto-approve/--no-auto-approve`：控制 TUI 中工具调用是否自动批准。
+
+`flocks run` 是 TUI / Node CLI 源码中的会话入口，不是当前 Python `flocks` 主 CLI 注册的稳定命令。通过 Python 包或 npm wrapper 使用时，应以 `flocks --help` 输出为准，通常使用 `flocks tui` 进入终端会话。
 
 ## 3. 会话 CLI
 
