@@ -98,6 +98,9 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { text: '4.8.1 自定义设备接入', link: '/md/modules/devices/custom-device-integration' },
+                { text: '4.8.2 TDP 接入', link: '/md/modules/devices/tdp-integration' },
+                { text: '4.8.3 OneSEC 接入', link: '/md/modules/devices/onesec-integration' },
+                { text: '4.8.4 天眼接入', link: '/md/modules/devices/skyeye-integration' },
               ],
             },
             { text: '4.9 工具清单', link: '/md/modules/tools' },
