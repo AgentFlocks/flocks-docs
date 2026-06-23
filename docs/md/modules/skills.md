@@ -110,11 +110,11 @@ flocks skills install-deps <skill-name>
 | `flocks skills remove <name>` | 删除指定 Skill。 |
 | `flocks skills install-deps <skill-name>` | 安装 Skill 声明的依赖。 |
 
-如果通过 npm wrapper 使用，也可能看到单数形式：
+如果通过 npm wrapper 使用，也应使用复数命令组。npm wrapper 会透传到 Python `flocks` CLI，不会把单数 `skill` 自动改写为 `skills`：
 
 ```bash
-npx @flocks-ai/flocks skill install clawhub:github
-npx @flocks-ai/flocks skill install github:owner/repo
+npx @flocks-ai/flocks skills install clawhub:github
+npx @flocks-ai/flocks skills install github:owner/repo
 ```
 
 在 Flocks Python CLI 中，正式命令组是复数 `flocks skills ...`。
