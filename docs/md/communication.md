@@ -8,5 +8,6 @@
 - [3.4 模型配置](/md/communication-models)
 - [3.5 文件与配置](/md/communication-files-config)
 - [3.6 网络访问清单](/md/communication-network-access)
+- [3.7 Flocks 安全管控](/md/communication-security-controls)
 
 如果你同时需要先看整体再逐条阅读，也建议先按上面顺序依次打开。
