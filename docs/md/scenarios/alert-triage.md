@@ -15,6 +15,10 @@ Flocks 的做法是让主 Agent `Rex` 拉取原始告警、落盘中间数据、
 
 该场景并不替代传统 NDR / TDP 的海量实时检测能力，而是面向「拿到线索后的深入分析」。凡是适合由分析员基于告警线索撰写研判报告的动作，都可以通过 Flocks 形成辅助分析链路。
 
+## 子场景
+
+- [批量NDR研判工作流](/md/scenarios/batch-scheduled-ndr-triage)：基于内置工作流 `stream_alert_triage`，周期性读取实时 NDR 降噪工作流产出的降噪结果文件，结合情报、AI 研判、测绘和资产漏洞分析生成研判报告。
+
 ## 输入与输出
 
 ### 典型输入
@@ -149,4 +153,4 @@ Rex 会自动在 **任务中心** 创建一条任务：
 
 ---
 
-相关：[场景总览](/md/scenarios) · [主机巡检 / 应急取证](/md/scenarios/host-forensics) · [内网安全产品接入](/md/scenarios/network-integration) · [威胁情报与 IOC 研判](/md/scenarios/threat-intel) · [任务中心](/md/modules/tasks) · [通道配置](/md/communication-channels)
+相关：[批量NDR研判工作流](/md/scenarios/batch-scheduled-ndr-triage) · [场景总览](/md/scenarios) · [主机巡检 / 应急取证](/md/scenarios/host-forensics) · [内网安全产品接入](/md/scenarios/network-integration) · [威胁情报与 IOC 研判](/md/scenarios/threat-intel) · [任务中心](/md/modules/tasks) · [通道配置](/md/communication-channels)

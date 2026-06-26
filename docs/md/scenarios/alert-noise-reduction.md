@@ -12,6 +12,10 @@
 
 本场景的重点不是单条告警分析，而是稳定接收告警流、识别重复告警、合并同类事件，并把需要人工关注的部分输出出来。
 
+## 子场景
+
+- [实时 NDR 降噪工作流](/md/scenarios/stream-ndr-alert-denoise)：基于内置工作流 `stream_alert_denoise`，对 TDP、SkyEye 等设备产生的 HTTP 流量日志和 NDR 告警进行固定规则 + 机器学习降噪。
+
 ## 部署要求
 
 告警降噪通常需要部署在服务器上，不建议部署在个人电脑上。原因是 Syslog、设备回调或日志推送类数据需要由安全设备主动发送到 Flocks 所在机器，个人电脑通常不具备稳定的固定地址、长期在线能力和网络可达性。
@@ -36,4 +40,4 @@
 | TDP 通过 Syslog 推送 | TDP 设备可以访问 Flocks 服务器的 Syslog 接收地址和端口 | 适合持续接收日志流；通常要求 Flocks 部署在服务器上 |
 
 
-相关：[告警研判](/md/scenarios/alert-triage) · [内网安全产品接入](/md/scenarios/network-integration) · [任务中心](/md/modules/tasks) · [通道配置](/md/communication-channels)
+相关：[实时 NDR 降噪工作流](/md/scenarios/stream-ndr-alert-denoise) · [告警研判](/md/scenarios/alert-triage) · [内网安全产品接入](/md/scenarios/network-integration) · [任务中心](/md/modules/tasks) · [通道配置](/md/communication-channels)

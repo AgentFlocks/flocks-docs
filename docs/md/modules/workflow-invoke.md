@@ -125,6 +125,34 @@ Syslog 触发器的配置参数通常包括：
 
 ![Syslog 触发器配置参数](../../img/modules/workflow/workflow-invoke-syslog-config.png)
 
+### 4.1 以 TDP 为例配置 Syslog 输出
+
+以 TDP 为例，需要在设备侧把 Syslog 输出目标配置为 Flocks 所在机器。配置入口通常在 **平台管理 → 设备配置 → 数据输出 → 对外输出Syslog**。
+
+![TDP 对外输出 Syslog 入口](../../img/modules/workflow/workflow-invoke-tdp-syslog-output-entry.png)
+
+新建输出日志时，先配置输出目标：
+
+- **输出类型**：选择需要推送的日志类型，例如威胁日志。
+- **目标网络地址**：填写 Flocks 所在服务器的 IP 地址。
+- **端口**：填写 Flocks Syslog 触发器监听的端口，例如 `5140`。
+- **传输协议**：与 Flocks Syslog 触发器保持一致，例如 `UDP` 或 `TCP`。
+
+![TDP 配置 Syslog 输出目标地址和端口](../../img/modules/workflow/workflow-invoke-tdp-syslog-target.png)
+
+随后选择发送数据的内容、类型和格式：
+
+- **所属业务组**：按需选择全部业务组或指定业务组。
+- **输出模板**：选择威胁日志等模板，确保字段能被 Flocks 映射到工作流 inputs。
+- **行为类型 / 威胁类型 / 攻击结果 / 严重级别**：按降噪范围选择需要输出的日志类型。
+- **输出标头信息**：按接收端解析需要选择是否输出。
+- **字段为空时**：选择输出默认值或空值，或不输出字段。
+- **输出日志字段**：选择实际要发送给 Flocks 的字段，建议保留时间、源 / 目的地址、域名、URL、HTTP 方法、状态码、规则名称、告警等级和原始日志内容等关键字段。
+
+![TDP 选择 Syslog 输出内容、类型和字段](../../img/modules/workflow/workflow-invoke-tdp-syslog-fields.png)
+
+保存后，TDP 会把符合条件的日志发送到 Flocks 的 Syslog 监听地址。Flocks 接收到日志后，会按照 Syslog 触发器配置写入工作流 inputs，并触发对应工作流。
+
 ## 5. 消费 Kafka 数据自动调用工作流
 
 Kafka 接入适合从消息队列中持续消费告警、日志、资产变更或其他事件流。Flocks 作为消费者读取消息，并把消息内容映射成工作流输入。
