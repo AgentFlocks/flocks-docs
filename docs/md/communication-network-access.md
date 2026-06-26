@@ -47,7 +47,18 @@ Docker 在线拉镜像时，还需要放行 `ghcr.io`，或你们实际使用的
 4. ThreatBook 相关能力
    - 大模型与引导场景可能涉及：`llm.threatbook.cn`、`llm.threatbook.io`
    - 引导页、服务接入与 MCP 相关访问可能涉及：`x.threatbook.com`、`threatbook.io`、`mcp.threatbook.cn`
-5. IM 通道按需放行
+
+5. Flocks Pro 云账号登录
+   - Pro 版本在内网环境使用云账号登录时，需要放行以下地址，非 Pro 版本无需配置：
+
+| 用途 | Host / 端口 | 当前解析 IP |
+| --- | --- | --- |
+| 云账号登录页 | `passport.threatbook.cn:443` | `123.59.72.253`、`123.59.51.113`、`106.75.36.224`、`106.75.36.226` |
+| Flocks Console API / 登录 exchange / 心跳 / 节点同步 | `portalflocks.threatbook.cn:443` | `106.75.19.23` |
+
+IP 解析结果可能随 DNS 调度变化，出口策略允许按域名配置时建议优先放行 Host；只能按 IP 放行时，以客户现场解析结果为准。
+
+6. IM 通道按需放行
    - 飞书：`open.feishu.cn`
    - 飞书国际版：`open.larksuite.com`
    - 钉钉：`api.dingtalk.com`
