@@ -31,7 +31,6 @@ VitePress 通过 `srcDir: '../docs'` 把 `docs/` 目录当作文档根。
 前置：Node.js >= 18（推荐 20）。
 
 ```bash
-cd src
 npm install
 npm run dev        # 默认 http://localhost:5173/flocks-docs/
 ```
@@ -39,7 +38,6 @@ npm run dev        # 默认 http://localhost:5173/flocks-docs/
 ## 本地构建预览
 
 ```bash
-cd src
 npm run build      # 产物在 src/.vitepress/dist
 npm run preview
 ```

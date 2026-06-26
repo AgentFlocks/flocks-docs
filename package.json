@@ -1,0 +1,11 @@
+{
+  "name": "flocks-docs-root",
+  "private": true,
+  "scripts": {
+    "predev": "npm --prefix src install",
+    "dev": "npm --prefix src run dev --",
+    "prebuild": "npm --prefix src install",
+    "build": "npm --prefix src run build",
+    "preview": "npm --prefix src run preview --"
+  }
+}

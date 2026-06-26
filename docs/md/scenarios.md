@@ -19,19 +19,23 @@
 
 ## 核心场景
 
-### [告警研判](/md/scenarios/alert-triage)
-
-从 TDP / NDR / XDR 等设备抓取告警，委派专职分析 Agent 逐条研判，输出结构化 JSON 并通过通道通知，随后可固化为周期性任务。这是 Flocks 最容易落地并形成持续价值的场景之一。
-
-> 典型输出：结构化研判结果 · JSON 报告 · 企微 / 钉钉通知
-
----
-
 ### [告警降噪](/md/scenarios/alert-noise-reduction)
 
 对 TDP / NDR / XDR 等设备产生的大量告警进行过滤、聚合和初步分级。该场景通常需要部署在云主机或内网虚拟机上，确保设备 Syslog 或 API 数据链路能够稳定到达 Flocks。
 
+子场景：[实时 NDR 降噪工作流](/md/scenarios/stream-ndr-alert-denoise)
+
 > 典型输出：重复告警合并 · 高优先级告警摘要 · 通道通知
+
+---
+
+### [告警研判](/md/scenarios/alert-triage)
+
+从 TDP / NDR / XDR 等设备抓取告警，委派专职分析 Agent 逐条研判，输出结构化 JSON 并通过通道通知，随后可固化为周期性任务。这是 Flocks 最容易落地并形成持续价值的场景之一。
+
+子场景：[批量NDR研判工作流](/md/scenarios/batch-scheduled-ndr-triage)
+
+> 典型输出：结构化研判结果 · JSON 报告 · 企微 / 钉钉通知
 
 ---
 

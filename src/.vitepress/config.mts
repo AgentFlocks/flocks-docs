@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { fileURLToPath } from 'node:url'
 
 export default defineConfig({
   base: '/flocks-docs/',
@@ -82,7 +83,16 @@ export default defineConfig({
             { text: '4.4 Workspace', link: '/md/modules/workspace' },
             { text: '4.5 Agent 智能体', link: '/md/modules/agents' },
             { text: '4.6 Skills 技能库', link: '/md/modules/skills' },
-            { text: '4.7 Workflow 工作流', link: '/md/modules/workflow' },
+            {
+              text: '4.7 Workflow 工作流',
+              link: '/md/modules/workflow',
+              collapsed: true,
+              items: [
+                { text: '4.7.1 创建工作流', link: '/md/modules/workflow-create' },
+                { text: '4.7.2 修改工作流', link: '/md/modules/workflow-edit' },
+                { text: '4.7.3 调用工作流', link: '/md/modules/workflow-invoke' },
+              ],
+            },
             {
               text: '4.8 设备管理',
               link: '/md/modules/devices',
@@ -112,8 +122,22 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: '5.1 场景总览', link: '/md/scenarios' },
-            { text: '5.2 告警研判', link: '/md/scenarios/alert-triage' },
-            { text: '5.3 告警降噪', link: '/md/scenarios/alert-noise-reduction' },
+            {
+              text: '5.2 告警降噪',
+              link: '/md/scenarios/alert-noise-reduction',
+              collapsed: true,
+              items: [
+                { text: '5.2.1 实时 NDR 降噪工作流', link: '/md/scenarios/stream-ndr-alert-denoise' },
+              ],
+            },
+            {
+              text: '5.3 告警研判',
+              link: '/md/scenarios/alert-triage',
+              collapsed: true,
+              items: [
+                { text: '5.3.1 批量NDR研判工作流', link: '/md/scenarios/batch-scheduled-ndr-triage' },
+              ],
+            },
             { text: '5.4 主机巡检 / 应急取证', link: '/md/scenarios/host-forensics' },
             { text: '5.5 内网安全产品接入', link: '/md/scenarios/network-integration' },
             { text: '5.6 浏览器自动化与网页登录', link: '/md/scenarios/browser-automation' },
@@ -233,6 +257,21 @@ export default defineConfig({
     lineNumbers: false,
     image: {
       lazyLoading: true,
+    },
+  },
+
+  vite: {
+    resolve: {
+      alias: [
+        {
+          find: 'vue/server-renderer',
+          replacement: fileURLToPath(new URL('../node_modules/vue/server-renderer/index.mjs', import.meta.url)),
+        },
+        {
+          find: 'vue',
+          replacement: fileURLToPath(new URL('../node_modules/vue/dist/vue.runtime.esm-bundler.js', import.meta.url)),
+        },
+      ],
     },
   },
 })
