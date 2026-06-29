@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: Flocks 文档
+  name: Flocks
   text: AI Native 安全运营平台
   tagline: 把零散的安全工作串成可复用、可持续运营的执行闭环
   actions:
@@ -25,28 +25,28 @@ features:
     details: Rex 主 Agent 作为统一入口，拆解目标、协调执行；专家 Agent 深耕情报、主机、漏洞、网页取数等领域。
     link: /md/modules/agents
     linkText: 了解 Agent
-  - icon: 🧰
-    title: 工具、MCP 与外部系统接入
-    details: 统一工具体系，内置工具、API 工具、Python 工具、MCP 一体化；把 ThreatBook、VT、FOFA、内部平台统一纳入上下文。
-    link: /md/modules/tools
-    linkText: 工具与 MCP
   - icon: 🔁
-    title: 工作流与任务中心
+    title: 自动编排工作流
     details: 工作流把零散动作组织为可创建、可校验、可测试的稳定剧本；任务中心支持周期执行、批量处理与持续运营。
     link: /md/modules/workflow
     linkText: 工作流能力
+  - icon: 🧰
+    title: 工具 MCP 接入
+    details: 统一工具体系，内置工具、API 工具、Python 工具、MCP 一体化；把 ThreatBook、VT、FOFA、内部平台统一纳入上下文。
+    link: /md/modules/tools
+    linkText: 工具与 MCP
   - icon: 📚
     title: 技能与经验沉淀
     details: Skills 承载规范、策略、方法论和任务模板，个人经验可以逐步转化为团队能力。
     link: /md/modules/skills
     linkText: Skills 技能库
   - icon: 🔌
-    title: 多模型多入口
-    details: 同时支持本地 / 第三方模型接入，模型是平台级资源；WebUI / CLI / TUI / 消息通道共享同一套后端。
-    link: /md/communication-models
-    linkText: 模型配置
+    title: 安全设备接入
+    details: 支持安全设备、API、网页控制台和内网系统接入，把外部系统能力统一纳入 Flocks 的执行上下文。
+    link: /md/modules/devices
+    linkText: 设备接入
   - icon: 🛡️
-    title: 安全运营场景落地
+    title: 安全场景实践
     details: 告警研判、主机巡检、内网安全产品接入、浏览器自动化等典型场景，均有可复用的最佳实践。
     link: /md/scenarios
     linkText: 查看场景实践
