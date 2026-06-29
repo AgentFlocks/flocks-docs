@@ -1,4 +1,4 @@
-# 4.8.4 NGTIP 接入
+# 4.8.5 NGTIP 接入
 
 NGTIP 接入用于把微步 HVV 情报平台的情报查询和平台功能 API 接入 Flocks 设备管理。接入前需要在 NGTIP 控制台创建 API Key，并按功能类型分别配置到 Flocks。
 
