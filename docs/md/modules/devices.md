@@ -88,6 +88,7 @@
 - [自定义设备接入](/md/modules/devices/custom-device-integration)：接入未预置的设备、私有 API 或 Web 控制台。
 - [TDP 接入](/md/modules/devices/tdp-integration)：配置微步 TDP 的 `API Key`、`Secret` 和 `Base URL`。
 - [OneSEC 接入](/md/modules/devices/onesec-integration)：开启 OneSEC 开放 API 并复制 `api_key`、`secret`。
+- [OneSIG 接入](/md/modules/devices/onesig-integration)：在 OneSIG API 联动中新增 API 校验配置，并填写 `ApiKey`、`Secret` 和 `Base URL`。
 - [NGTIP 接入](/md/modules/devices/ngtip-integration)：配置微步 HVV 情报平台的情报查询和平台功能 API Key。
 - [天眼接入](/md/modules/devices/skyeye-integration)：配置奇安信天眼，注意 `Base URL` 必须带 `/skyeye` 后缀。
 - [深信服 SIP 接入](/md/modules/devices/sangfor-sip-integration)：配置 SIP 第三方平台和 Flocks 侧连接参数。
