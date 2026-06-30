@@ -47,7 +47,7 @@ features:
     linkText: 设备接入
   - icon: 🛡️
     title: 安全场景实践
-    details: 告警研判、主机巡检、内网安全产品接入、浏览器自动化等典型场景，均有可复用的最佳实践。
+    details: 告警研判、主机巡检、设备接入与巡检等典型场景，均有可复用的最佳实践。
     link: /md/scenarios
     linkText: 查看场景实践
 ---

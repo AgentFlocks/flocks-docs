@@ -121,4 +121,4 @@
 - [Skills 技能库](/md/modules/skills)：维护设备方法论和巡检规范。
 - [Workflow 工作流](/md/modules/workflow)：把设备操作固化为流程。
 - [任务中心](/md/modules/tasks)：配置周期设备巡检。
-- [场景实践 · 网安设备巡检](/md/scenarios/device-inspection)：设备巡检场景说明。
+- [场景实践 · 设备接入与巡检](/md/scenarios/device-inspection)：设备接入后的巡检场景说明。

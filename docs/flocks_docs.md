@@ -36,8 +36,7 @@
 | 场景案例 | 告警研判 | [告警研判](md/scenarios.md) |
 | 场景案例 | 告警降噪 | [告警降噪](md/scenarios/alert-noise-reduction.md) |
 | 场景案例 | 主机巡检 | [主机巡检](md/scenarios.md) |
-| 场景案例 | 内网安全产品接入 | [内网安全产品接入](md/scenarios.md) |
-| 场景案例 | 浏览器自动化与网页登录 | [浏览器自动化与网页登录](md/scenarios.md) |
+| 场景案例 | 设备接入与巡检 | [设备接入与巡检](md/scenarios/device-inspection.md) |
 | 运维与排障 | 日志与结果查看 | [日志与结果查看](md/operations.md) |
 | 运维与排障 | 安装排查 | [安装排查](md/operations.md) |
 | 运维与排障 | 升级方式 | [升级方式](md/operations.md) |

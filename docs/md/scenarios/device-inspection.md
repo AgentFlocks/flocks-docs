@@ -1,8 +1,8 @@
-# 网安设备巡检
+# 设备接入与巡检
 
-网安设备巡检的核心问题是：企业中多类安全设备分布在不同网段、归属不同管理员，如何周期性确认它们在线、规则库有效、日志未中断且性能无异常。
+设备接入与巡检的核心问题是：先把企业中的 TDP、NDR、HIDS、EDR、防火墙等安全设备接入 Flocks，再周期性确认它们在线、规则库有效、日志未中断且性能无异常。
 
-Flocks 的做法是构建专门的设备巡检 Agent，对接各厂商管理 API，并通过定时任务周期性执行；发现异常后立即通过通道外发并保留记录。
+Flocks 的做法是用 [设备管理](/md/modules/devices) 维护设备清单、API / web2cli 能力和设备 Skill，再由设备巡检 subagent 执行只读巡检；发现异常后立即通过通道外发并保留记录。
 
 ## 场景简介
 
@@ -11,11 +11,25 @@ Flocks 的做法是构建专门的设备巡检 Agent，对接各厂商管理 API
 | 场景 | 对象 | 关心的问题 |
 | --- | --- | --- |
 | [主机巡检 / 应急取证](/md/scenarios/host-forensics) | 业务主机（Linux / 少量 Windows） | 有没有被攻陷？有没有挖矿 / webshell？ |
-| 网安设备巡检（本页） | 安全设备自身（NDR / HIDS 管理端 / 防火墙 / 情报源） | 设备是不是还活着？还能不能防？ |
+| 设备接入与巡检（本页） | 安全设备自身（NDR / HIDS 管理端 / 防火墙 / 情报源） | 设备有没有接入？是不是还活着？还能不能防？ |
 
 实际交付中，设备巡检是较容易落地的自动化场景之一。由于所有查询均为只读操作，不涉及上机命令和人工弹窗，因此适合做成常态化定时任务。
 
-## 输入与输出
+## 设备接入
+
+接入设备时优先参考 [设备管理](/md/modules/devices)。设备管理对应 WebUI 中的 **数据源与设备** 页面，负责维护设备基础信息、连接状态、API 能力、web2cli 动作和设备 Skill。
+
+![查看已接入设备](../../img/scenarios/device-inspection/connected-devices-query.png)
+
+典型接入路径：
+
+1. 在 **数据源与设备** 中选择设备类型，例如 TDP、NDR、HIDS、SIEM、防火墙或威胁情报源。
+2. 填写 endpoint、Token、AK/SK、Secret 或账号凭证。
+3. 执行连接测试，确认网络可达、凭证有效、字段可被工具或 Agent 消费。
+4. 按设备条件选择能力：API 完整时优先接 API；只有 Web 控制台时补充 web2cli；巡检方法稳定后沉淀设备 Skill。
+5. 绑定任务中心或 Workflow，让巡检流程能够周期运行。
+
+## 巡检输入与输出
 
 ### 典型输入
 
@@ -35,14 +49,22 @@ Flocks 的做法是构建专门的设备巡检 Agent，对接各厂商管理 API
 | 依赖项 | 要求 |
 | --- | --- |
 | 模型 | 默认模型即可；巡检逻辑本身不重推理，模型主要用于"结果总结 + 异常判断"——参考 [模型配置](/md/communication-models) |
-| 设备 API | 各安全设备的管理 API 已接入 Flocks Tools——参考 [内网安全产品接入](/md/scenarios/network-integration) |
+| 设备接入 | 安全设备已在 [设备管理](/md/modules/devices) 中完成接入，并具备 API、web2cli 或设备 Skill 能力 |
 | 通道 | 企微 / 钉钉 / 飞书任一通道已连通——参考 [通道配置](/md/communication-channels) |
 | 任务中心 | 用于驱动每小时定时执行——参考 [任务中心](/md/modules/tasks) |
 | 基线阈值 | 建议预先写入 Skill：在线 / 离线判定标准、规则库过期天数、性能阈值 |
 
+## 巡检原理
+
+设备巡检由专门的 subagent 执行。Rex 负责理解目标、选择设备巡检 subagent 并把设备清单、巡检项和输出要求交给它；subagent 在自己的执行循环里调用设备 API、web2cli、文件读写和通道工具，完成取数、判断、汇总和通知。
+
+![设备巡检智能体配置](../../img/scenarios/device-inspection/device-inspector-agent-config.png)
+
+这个拆分的好处是：Rex 保持统一入口，设备巡检 subagent 专注于设备健康检查，长期复用时只需要维护该 subagent 的工具权限、Prompt、巡检阈值和输出格式。
+
 ## 操作步骤（WebUI）
 
-### 步骤 1：准备设备清单与巡检项
+### 步骤 1：准备已接入设备清单与巡检项
 
 在 Workspace 或项目 Skill 里维护一份结构化清单，给巡检 Agent 当"输入"：
 
@@ -58,7 +80,7 @@ devices:
     checks: [online, rule_version, log_status, throughput]
 ```
 
-这份清单也可以存放在企业 CMDB 或资产管理平台中，由 Agent 先调用 API 拉取。
+这份清单也可以来自 [设备管理](/md/modules/devices)、企业 CMDB 或资产管理平台，由 Agent 先调用 API 拉取。
 
 ### 步骤 2：起一条会话，跑一次"手工巡检"验证
 
@@ -119,6 +141,13 @@ Rex 会在 [任务中心](/md/modules/tasks) 创建一条任务：
 | T+0:04 | 巡检台账写入，便于周度复盘 | 可用于 SLA 审计 |
 | T+1:00 | 下一轮自动触发，循环 | 7 × 24 运行 |
 
+一次 TDP + OneSec 设备巡检的案例结果通常会拆成两类报告：
+
+- **TDP Inspection**：输出机器数量、关键指标、功能状态、系统运行情况、组件状态、CPU 占用等，标出是否存在服务不可用或资源占用异常。
+- **OneSec Inspection**：输出接入设备数量、在线 / 离线状态、威胁行为、威胁事件清单、健康评估和数据采集说明，便于判断设备是否仍在持续产生日志和检测结果。
+
+![设备巡检案例结果](../../img/scenarios/device-inspection/device-inspection-result.png)
+
 ## 产出示例
 
 一份巡检快照（单轮）的典型结构：
@@ -176,7 +205,7 @@ Rex 会在 [任务中心](/md/modules/tasks) 创建一条任务：
 
 | 问题 | 处理 |
 | --- | --- |
-| 某厂商只给 Web 控制台，没有 API | 启用浏览器工具登录后台抓数据；发现稳定的后端接口后沉淀为 API 工具——参考 [浏览器自动化与网页登录](/md/scenarios/browser-automation) |
+| 某厂商只给 Web 控制台，没有 API | 在设备管理中补充 web2cli 动作，必要时启用浏览器工具登录后台抓数据；发现稳定的后端接口后再沉淀为 API 工具 |
 | 通道噪音大，每小时都在发 | 加静默策略：只在"新异常"或"持续异常超过 N 轮"时发 |
 | 设备太多，并发打爆接口 | 工具层加并发上限；或把清单拆两组交错执行 |
 | 规则库版本字段厂商不一 | 在每个设备的 Skill 里写一个"标准化适配器"，统一产出 `rule_version` / `rule_age_days` |
@@ -184,4 +213,4 @@ Rex 会在 [任务中心](/md/modules/tasks) 创建一条任务：
 
 ---
 
-相关：[场景总览](/md/scenarios) · [内网安全产品接入](/md/scenarios/network-integration) · [主机巡检 / 应急取证](/md/scenarios/host-forensics) · [任务中心](/md/modules/tasks) · [Skills 技能库](/md/modules/skills) · [通道配置](/md/communication-channels)
+相关：[场景总览](/md/scenarios) · [设备管理](/md/modules/devices) · [主机巡检 / 应急取证](/md/scenarios/host-forensics) · [任务中心](/md/modules/tasks) · [Skills 技能库](/md/modules/skills) · [通道配置](/md/communication-channels)
