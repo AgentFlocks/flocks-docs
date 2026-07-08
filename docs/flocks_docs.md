@@ -34,6 +34,7 @@
 | 模型配置 | 本地与第三方模型接入 | [本地与第三方模型接入](md/llm_models.md) |
 | 模型配置 | 模型报错排查 | [模型报错排查](md/llm_models.md) |
 | 场景案例 | 告警研判 | [告警研判](md/scenarios.md) |
+| 场景案例 | SOC 工作区场景套件 | [SOC 工作区场景套件](md/scenarios/soc-workspace-suite.md) |
 | 场景案例 | 告警降噪 | [告警降噪](md/scenarios/alert-noise-reduction.md) |
 | 场景案例 | 主机巡检 | [主机巡检](md/scenarios.md) |
 | 场景案例 | 设备接入与巡检 | [设备接入与巡检](md/scenarios/device-inspection.md) |
