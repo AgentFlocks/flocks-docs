@@ -92,17 +92,157 @@
 - 每条告警的结构化研判字段，包括是否为攻击、攻击是否成功、置信度 / 风险级别、判定结果和 Flocks AI 研判报告。
 - `pipeline_summary.md` 研判摘要报告。
 
-研判结果会写入工作空间的工作流目录：
+工作流会始终返回结构化结果，并写入总览报告：
+
+```text
+~/.flocks/workspace/outputs/<YYYY-MM-DD>/artifacts/stream_alert_triage_summary.md
+```
+
+研判后的完整告警默认写入 SOC 数据库，而不是默认写 JSONL 文件：
+
+```text
+~/.flocks/data/soc.db
+```
+
+如果启用 JSONL 输出，研判结果会写入工作空间的工作流目录：
 
 ```text
 workspace/workflows/stream_alert_triage/
 ```
 
-其中按日期存放每次研判的产物，常见文件包括缓存文件、锁文件、`pipeline_summary.md` 和其他中间结果。实时 NDR 降噪工作流的降噪结果会写入 `workspace/workflows/stream_alert_denoise/`，`stream_alert_triage` 会读取这些结果继续研判，并把研判报告写回自己的目录。
+其中按日期存放 `triage_result_NNN.jsonl` 等可选产物。实时 NDR 降噪工作流的降噪结果会写入 `workspace/workflows/stream_alert_denoise/`，`stream_alert_triage` 会读取这些结果继续研判，再按配置写入 SOC 数据库、JSONL 文件或两者同时写入。
 
 ![stream_alert_triage 的工作空间产物目录](../../img/scenarios/alert-triage/batch-ndr-workspace-results.png)
 
-## 7. 产出示例 JSON
+## 7. 写入方式与数据库字段
+
+`stream_alert_triage` 支持两类持久化写入：SOC 数据库和 JSONL 文件。默认配置是写入 SOC 数据库，便于 SOC 工作区页面和 `soc_workspace_query` 工具查询。
+
+### 7.1 输出模式
+
+| 参数 | 默认值 | 说明 |
+| --- | --- | --- |
+| `triage_output_mode` | `soc_db` | 输出模式，支持 `soc_db`、`jsonl`、`both`、`none`。 |
+| `soc_db_path` | `~/.flocks/data/soc.db` | SOC 数据库默认路径。 |
+| `jsonl_output_dir` | 空 | 可选 JSONL 输出目录；为空时使用 `workspace/workflows/stream_alert_triage/<YYYY-MM-DD>/`。 |
+| `persist_triage_output` | `false` | 旧兼容参数；在 `soc_db` 模式下设为 `true` 时，会额外写 JSONL，相当于 `both`。 |
+
+各输出模式的行为：
+
+| 输出模式 | 写 SOC DB | 写 JSONL | 适用场景 |
+| --- | --- | --- | --- |
+| `soc_db` | 是 | 否 | 默认模式，供 SOC 工作区页面和查询工具使用。 |
+| `jsonl` | 否 | 是 | 只需要文件归档或给下游脚本消费。 |
+| `both` | 是 | 是 | 既要 SOC 工作区展示，也要保留文件产物。 |
+| `none` | 否 | 否 | 只看本次工作流返回值；仍可能写入研判缓存和总览报告。 |
+
+### 7.2 SOC 数据库表结构
+
+当前默认数据库文件：
+
+```text
+~/.flocks/data/soc.db
+```
+
+研判后的告警写入 `alert_records` 表。表结构如下：
+
+```sql
+CREATE TABLE alert_records (
+    row_id TEXT PRIMARY KEY,
+    record_id TEXT,
+    asset_date TEXT NOT NULL,
+    source_file TEXT NOT NULL,
+    line_number INTEGER NOT NULL,
+    event_time INTEGER,
+    source_type TEXT,
+    threat_name TEXT,
+    is_duplicate INTEGER NOT NULL DEFAULT 0,
+    record_json TEXT NOT NULL
+);
+```
+
+字段说明：
+
+| 字段 | SQLite 类型 | 是否必填 | 说明 |
+| --- | --- | --- | --- |
+| `row_id` | `TEXT` | 是，主键 | 数据库行唯一 ID，用于避免重复写入同一条来源记录。 |
+| `record_id` | `TEXT` | 否 | 告警原始 ID，通常来自降噪结果中的 `id` 字段。 |
+| `asset_date` | `TEXT` | 是 | 资产 / 告警日期，格式通常为 `YYYY-MM-DD`，用于按天查询和分区展示。 |
+| `source_file` | `TEXT` | 是 | 记录来源文件，通常是上游 `dedup_result_NNN.jsonl` 的相对路径或文件名。 |
+| `line_number` | `INTEGER` | 是 | 来源 JSONL 文件中的行号；文件头行会被跳过。 |
+| `event_time` | `INTEGER` | 否 | 告警事件时间，通常是 Unix 时间戳秒级值。 |
+| `source_type` | `TEXT` | 否 | 告警来源类型，例如 `tdp`、`skyeye`。 |
+| `threat_name` | `TEXT` | 否 | 威胁名称，例如 SQL 注入、Webshell 扫描、内网穿透等。 |
+| `is_duplicate` | `INTEGER` | 是 | 是否为重复告警，`0` 表示否，`1` 表示是。 |
+| `record_json` | `TEXT` | 是 | 完整告警 JSON 字符串，包含降噪字段和研判字段。 |
+
+`record_json` 会保留完整记录，因此页面或查询工具需要的详细字段通常从这里解析。常见内容包括：
+
+- 降噪阶段字段：`dedup_key`、`is_duplicate`、`_lsh_cluster_id`、`_source_type`、`_process_type`。
+- 网络与 HTTP 字段：`sip`、`dip`、`sport`、`dport`、`direction`、`req_host`、`req_http_url`、`req_body`、`rsp_status_code`、`rsp_body`。
+- 威胁字段：`threat_rule_id`、`threat_name`、`threat_type`、`threat_phase`、`threat_result`、`threat_confidence`。
+- 研判字段：`attack_verdict`、`attack_success`、`risk_level`、`confidence`、`decision`、`decision_label`、`report_title`、`triage_report`、`triage_status`、`triage_source`、`triage_ms`。
+
+数据库会为常用查询字段创建索引：
+
+```sql
+CREATE INDEX idx_alert_records_asset_date ON alert_records(asset_date);
+CREATE INDEX idx_alert_records_record_id ON alert_records(record_id);
+CREATE INDEX idx_alert_records_source_type ON alert_records(source_type);
+CREATE INDEX idx_alert_records_threat_name ON alert_records(threat_name);
+CREATE INDEX idx_alert_records_duplicate ON alert_records(is_duplicate);
+```
+
+### 7.3 数据契约元信息表
+
+数据库中还包含 `contract_meta` 表，用于保存写入数据和前端 UI 之间的数据协议元信息。SOC 工作区页面和查询工具可以通过这张表判断 `alert_records.record_json` 应该按哪个 schema 解析，以及当前数据库由哪些来源文件生成。
+
+表结构如下：
+
+```sql
+CREATE TABLE contract_meta (
+    key TEXT PRIMARY KEY,
+    value TEXT NOT NULL
+);
+```
+
+字段说明：
+
+| 字段 | SQLite 类型 | 是否必填 | 说明 |
+| --- | --- | --- | --- |
+| `key` | `TEXT` | 是，主键 | 元信息键名。 |
+| `value` | `TEXT` | 是 | 元信息值。可以是普通字符串，也可以是 JSON 字符串。 |
+
+当前常见 key：
+
+| key | 示例值 | 说明 |
+| --- | --- | --- |
+| `schemaVersion` | `soc.alerts.sqlite.v1` | SOC 告警 SQLite 数据协议版本。前端 UI 和查询工具应优先根据该版本选择解析逻辑。 |
+| `generatedAt` | `2026-07-01T13:36:57` | 数据库或本批数据生成时间，用于判断数据新鲜度。 |
+| `sourceRoot` | `~/.flocks/plugins/contracts/webui/soc_ui/.../assets` | 数据契约或前端资源根目录，用于指引 UI 找到对应协议、字段映射或静态资源。 |
+| `recordCount` | `6427` | 当前写入或生成时记录的告警数量，可用于页面展示、校验和排障。 |
+| `sourceFiles` | `["2026-07-01/dedup_result_001.jsonl"]` | 本批数据来源文件列表，通常是 JSON 字符串数组。 |
+
+`contract_meta` 的核心作用是把数据库表结构、`record_json` 里的业务字段和前端 UI 的展示协议连接起来：
+
+- 写入侧通过 `schemaVersion` 声明当前 `record_json` 字段语义。
+- 前端 UI 通过 `schemaVersion` 决定如何解析告警字段、研判字段和统计口径。
+- `sourceRoot` 指向 SOC UI 数据契约或资源位置，便于页面加载字段映射、图表配置或默认展示规则。
+- `recordCount` 和 `sourceFiles` 便于判断页面展示的数据量是否与写入批次一致。
+
+如果后续调整 `record_json` 字段结构、字段命名或前端展示协议，应同步升级 `schemaVersion`，并确保 SOC 工作区 UI、`soc_workspace_query` 和写入工作流使用同一套协议。
+
+### 7.4 JSONL 文件写入
+
+当 `triage_output_mode=jsonl`、`triage_output_mode=both`，或旧参数 `persist_triage_output=true` 生效时，工作流会写入研判 JSONL 文件：
+
+```text
+~/.flocks/workspace/workflows/stream_alert_triage/<YYYY-MM-DD>/triage_result_NNN.jsonl
+```
+
+每个 JSONL 文件第一行是文件头，包含 `workflow`、`seq`、`run_id`、`batch_total`、`batch_triaged`、`batch_followers_reused`、`batch_cache_hit` 和 `batch_triage_failed` 等批次信息。后续每一行是一条带研判字段的完整告警记录。
+
+## 8. 产出示例 JSON
 
 `stream_alert_triage` 会读取 `stream_alert_denoise` 产出的降噪结果，并给每条告警追加研判字段。除了面向人阅读的 Flocks AI 研判报告，结果里也会包含可用于落库、筛选和自动化处置的结构化判定。
 
@@ -195,7 +335,7 @@ workspace/workflows/stream_alert_triage/
 
 示例中的 `is_attack`、`attack_succeeded`、`confidence`、`decision` 和 `decision_label` 是面向业务展示的读取口径：其中 `decision` 对应工作流原生的 `attack_verdict`，`attack_succeeded` 对应 `attack_success`，`confidence` 可按 `risk_level` 和报告证据强度归一化展示。
 
-## 8. 上线检查
+## 9. 上线检查
 
 正式启用前，建议确认：
 
@@ -203,6 +343,8 @@ workspace/workflows/stream_alert_triage/
 - 实时 NDR 降噪工作流已经接入 TDP、SkyEye 或其他 NDR 日志源。
 - 降噪工作流已经产生当天的降噪结果文件。
 - `stream_alert_triage` 工作流可以读取降噪结果文件所在目录。
+- 默认输出模式是否符合预期：保留 `triage_output_mode=soc_db`，或按需要切换为 `jsonl` / `both` / `none`。
+- 如果使用 SOC 工作区展示，确认 `~/.flocks/data/soc.db` 可写，并且 `alert_records` 中有数据。
 - 定时任务频率合理，避免与日志写入、报告生成或通道通知互相抢占资源。
 
 相关：[告警研判](/md/scenarios/alert-triage) · [实时 NDR 降噪工作流](/md/scenarios/stream-ndr-alert-denoise) · [任务中心](/md/modules/tasks) · [调用工作流](/md/modules/workflow-invoke)
