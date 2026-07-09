@@ -2,7 +2,7 @@
  * @Author: John Yin 10972267+john-yin2333@user.noreply.gitee.com
  * @Date: 2026-06-12 10:41:13
  * @LastEditors: John Yin 10972267+john-yin2333@user.noreply.gitee.com
- * @LastEditTime: 2026-06-12 10:44:11
+ * @LastEditTime: 2026-07-09 15:47:00
  * @FilePath: /flocks_docs/docs/md/communication-network-access.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -58,7 +58,24 @@ Docker 在线拉镜像时，还需要放行 `ghcr.io`，或你们实际使用的
 
 IP 解析结果可能随 DNS 调度变化，出口策略允许按域名配置时建议优先放行 Host；只能按 IP 放行时，以客户现场解析结果为准。
 
-6. IM 通道按需放行
+6. Flocks Hub 使用（下载）按需放行
+   - 当前随 Flocks 版本发布的本地 Flocks Hub / 插件广场是文件系统 backed，浏览和安装 bundled 插件时不额外依赖公网。
+   - 如果启用在线插件下载、外部 Skill 来源或插件依赖安装，需要按实际来源放行以下域名：
+
+| 用途 | Host |
+| --- | --- |
+| Flocks 云端插件目录、插件包下载或企业交付版本中的 Hub 下载服务 | `portalflocks.threatbook.cn` |
+| GitHub 仓库、目录 API 与源码下载 | `github.com`、`api.github.com`、`codeload.github.com`、`raw.githubusercontent.com` |
+| GitHub Release / 大文件资源下载 | `objects.githubusercontent.com`、`github-releases.githubusercontent.com` |
+| clawhub Skill 搜索 | `clawhub.com` |
+| clawhub Skill 包下载 | `wry-manatee-359.convex.site` |
+| skills.sh Skill 搜索或解析 | `skills.sh`、`www.skills.sh` |
+| SafeSkill CLI 检索或下载 | `safeskill.cn` |
+| Skill / Tool 插件依赖安装 | 继续按上文 npm、PyPI、uv 等依赖源放行，或按你们实际配置的镜像源放行 |
+
+如果只使用内置 bundled 插件，或由交付人员离线导入插件包，则不需要为 Flocks Hub 额外开放公网域名。若插件 Manifest 或安装说明中声明了外部 API、MCP、npm 包、Python 包或二进制下载地址，应以该插件的实际依赖 Host 为准。
+
+7. IM 通道按需放行
    - 飞书：`open.feishu.cn`
    - 飞书国际版：`open.larksuite.com`
    - 钉钉：`api.dingtalk.com`
@@ -69,4 +86,5 @@ IP 解析结果可能随 DNS 调度变化，出口策略允许按域名配置时
   
 - 仅本地使用：放行 WebUI / API 访问端口，加上模型服务 Host 即可。
 - 需要在线安装：在最小集合上，再增加安装与升级阶段的依赖站点。
+- 需要使用 Flocks Hub 在线下载插件或外部 Skill：再按 Hub 下载来源和插件实际依赖逐项加白。
 - 需要情报或 IM 集成：再按 ThreatBook、飞书、钉钉、企微、微信、Telegram 等启用项逐项加白，而不是全部放开。
