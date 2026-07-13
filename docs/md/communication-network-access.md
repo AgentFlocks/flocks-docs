@@ -20,19 +20,19 @@
   font-size: 14px;
 }
 .vp-doc table.network-access-table col.ip {
-  width: 31%;
+  width: 24%;
 }
 .vp-doc table.network-access-table col.protocol {
-  width: 8%;
+  width: 7%;
 }
 .vp-doc table.network-access-table col.port {
-  width: 11%;
+  width: 9%;
 }
 .vp-doc table.network-access-table col.description {
   width: 30%;
 }
 .vp-doc table.network-access-table col.domain {
-  width: 20%;
+  width: 30%;
 }
 .vp-doc table.network-access-table th,
 .vp-doc table.network-access-table td {
@@ -78,7 +78,12 @@
   border: 1px solid #e5e7eb;
   border-radius: 4px;
   padding: 1px 4px;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.vp-doc table.network-access-table td:nth-child(5) code {
+  word-break: break-all;
 }
 </style>
 
