@@ -73,4 +73,4 @@
 
 ---
 
-相关：[通道配置总览](/md/communication-channels) · [企业微信通道配置](/md/channels/wecom) · [飞书通道配置](/md/channels/feishu) · [钉钉通道配置](/md/channels/dingtalk) · [Telegram 通道配置](/md/channels/telegram) · [WhatsApp 通道配置](/md/channels/whatsapp)
+相关：[通道配置总览](/md/communication-channels) · [企业微信通道配置](/md/channels/wecom) · [飞书通道配置](/md/channels/feishu) · [钉钉通道配置](/md/channels/dingtalk) · [Telegram 通道配置](/md/channels/telegram) · [WhatsApp 通道配置](/md/channels/whatsapp) · [邮件网关配置](/md/channels/email)

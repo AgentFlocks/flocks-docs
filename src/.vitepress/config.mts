@@ -64,6 +64,7 @@ export default defineConfig({
                 { text: '3.3.4 Telegram 配置', link: '/md/channels/telegram' },
                 { text: '3.3.5 微信配置', link: '/md/channels/weixin' },
                 { text: '3.3.6 WhatsApp 配置', link: '/md/channels/whatsapp' },
+                { text: '3.3.7 邮件网关配置', link: '/md/channels/email' },
               ],
             },
             {
