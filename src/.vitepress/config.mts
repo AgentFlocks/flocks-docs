@@ -61,7 +61,8 @@ export default defineConfig({
                 { text: '3.3.1 钉钉配置', link: '/md/channels/dingtalk' },
                 { text: '3.3.2 飞书配置', link: '/md/channels/feishu' },
                 { text: '3.3.3 企业微信配置', link: '/md/channels/wecom' },
-                { text: '3.3.4 微信配置', link: '/md/channels/weixin' },
+                { text: '3.3.4 Telegram 配置', link: '/md/channels/telegram' },
+                { text: '3.3.5 微信配置', link: '/md/channels/weixin' },
               ],
             },
             {
