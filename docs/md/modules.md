@@ -113,7 +113,7 @@ Skill、Agent / Subagent 与 Workflow 都用于承载具体任务能力，核心
 
 ### 2.11 [通道管理](/md/modules/channels)
 
-通道管理用于配置飞书、企业微信、钉钉、Telegram、微信、WhatsApp 等 IM 通道，让 Rex 可以在团队协作入口接收消息，任务中心和 Workflow 也可以把结果推送到指定群或用户。
+通道管理用于配置飞书、企业微信、钉钉、Telegram、微信、WhatsApp、邮件网关等外部通道，让 Rex 可以在团队协作入口接收消息，任务中心和 Workflow 也可以把结果推送到指定群、用户或邮箱。
 
 > 典型用法：群里 @Rex 触发研判 · 定时巡检结果发企微 · 告警研判报告推送飞书
 
