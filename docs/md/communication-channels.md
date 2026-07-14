@@ -10,16 +10,17 @@
 - 让机器人在特定群或会话中接收消息
 - 把定时任务的结果直接推送给值班人员或运营团队
 
-## 3.3.1 四大平台配置入口
+## 3.3.1 五大平台配置入口
 
 不同 IM 平台的开发者后台流程差异较大，Flocks 将主流平台的接入指南拆成独立页面，按需查阅即可：
 
 - [钉钉通道配置](/md/channels/dingtalk)：企业内部应用 + 机器人 + 群内验证
 - [飞书通道配置](/md/channels/feishu)：飞书开放平台自建应用 + 权限 + App ID / App Secret
 - [企业微信通道配置](/md/channels/wecom)：企业微信管理后台 + 智能机器人 + Bot ID / Secret
+- [Telegram 通道配置](/md/channels/telegram)：BotFather 创建 Bot + Bot Token + Polling / Webhook
 - [微信通道配置](/md/channels/weixin)：微信 iLink Bot 扫码登录 + Token / Account ID
 
-每个子页面都给出了从开发者后台到 Flocks 连接的完整步骤。多群投递与 `session ID` 的使用细节，放在 [企业微信通道配置](/md/channels/wecom#多群消息与-session-id) 中集中说明；微信通道则通过 WebUI 内置的二维码登录直接获取 `Token` 与 `Account ID`。
+每个子页面都给出了从平台侧创建机器人到 Flocks 连接的完整步骤。多群投递与 `session ID` 的使用细节，放在 [企业微信通道配置](/md/channels/wecom#多群消息与-session-id) 和 [Telegram 通道配置](/md/channels/telegram#结果推送与-session-id) 中说明；微信通道则通过 WebUI 内置的二维码登录直接获取 `Token` 与 `Account ID`。
 
 ## 3.3.2 使用方式
 
@@ -27,7 +28,7 @@
 
 ### 从 IM 中直接发消息
 
-在企业微信、飞书、钉钉或微信等 IM 中向 Flocks 机器人发送消息后，Flocks 会在当前 IM 会话中回答。
+在企业微信、飞书、钉钉、Telegram 或微信等 IM 中向 Flocks 机器人发送消息后，Flocks 会在当前 IM 会话中回答。
 
 常见用法：
 
