@@ -56,7 +56,7 @@ macOS：
 docker run -d \
   --name flocks \
   -e TZ=Asia/Shanghai \
-  -e BU_CDP_URL="http://192.168.65.254:19122" \
+  -e BU_CDP_URL="http://host.docker.internal:19122" \
   -p 8000:8000 \
   -p 5173:5173 \
   --shm-size 4gb \
@@ -97,11 +97,9 @@ macOS Docker Desktop：
 ```bash
 mv ~/.flocks/browser /tmp/flocks-browser
 ln -s /tmp/flocks-browser ~/.flocks/browser
-export BU_CDP_URL="http://192.168.65.254:19122"
+export BU_CDP_URL="http://host.docker.internal:19122"
 flocks browser --setup
 ```
-
-其中 `192.168.65.254` 是当前 macOS Docker Desktop 环境中容器访问宿主机所使用的地址。如果 Docker Desktop 的网络配置发生变化，需要将其替换为容器实际可访问的宿主机地址。
 
 Windows Docker Desktop：
 
@@ -112,7 +110,7 @@ export BU_CDP_URL="http://host.docker.internal:19122"
 flocks browser --setup
 ```
 
-`host.docker.internal` 是 Docker Desktop 提供的宿主机域名，用于从 Windows 容器访问宿主机服务。
+`host.docker.internal` 是 Docker Desktop 提供的宿主机域名，用于从 macOS 或 Windows 容器访问宿主机服务，无需在文档或配置中写入具体 IP 地址。
 
 symlink 会保存在持久化的 `~/.flocks` 目录中，只把浏览器运行目录重定向到 `/tmp/flocks-browser`，不会改变其他 Flocks 数据的位置。完成配置后，Flocks 会通过 `BU_CDP_URL` 连接宿主机上的 Chrome。
 
