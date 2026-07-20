@@ -189,4 +189,4 @@ soc-rex@example.com
 
 ---
 
-相关：[通道配置总览](/md/communication-channels) · [钉钉通道配置](/md/channels/dingtalk) · [飞书通道配置](/md/channels/feishu) · [企业微信通道配置](/md/channels/wecom) · [Telegram 通道配置](/md/channels/telegram) · [微信通道配置](/md/channels/weixin) · [WhatsApp 通道配置](/md/channels/whatsapp)
+相关：[通道配置总览](/md/communication-channels) · [钉钉通道配置](/md/channels/dingtalk) · [飞书通道配置](/md/channels/feishu) · [企业微信通道配置](/md/channels/wecom) · [Slack 通道配置](/md/channels/slack) · [Telegram 通道配置](/md/channels/telegram) · [微信通道配置](/md/channels/weixin) · [WhatsApp 通道配置](/md/channels/whatsapp)

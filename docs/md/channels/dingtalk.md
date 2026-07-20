@@ -100,4 +100,4 @@
 
 ---
 
-相关：[通道配置总览](/md/communication-channels) · [飞书通道配置](/md/channels/feishu) · [企业微信通道配置](/md/channels/wecom) · [Telegram 通道配置](/md/channels/telegram) · [微信通道配置](/md/channels/weixin) · [WhatsApp 通道配置](/md/channels/whatsapp) · [邮件网关配置](/md/channels/email)
+相关：[通道配置总览](/md/communication-channels) · [飞书通道配置](/md/channels/feishu) · [企业微信通道配置](/md/channels/wecom) · [Slack 通道配置](/md/channels/slack) · [Telegram 通道配置](/md/channels/telegram) · [微信通道配置](/md/channels/weixin) · [WhatsApp 通道配置](/md/channels/whatsapp) · [邮件网关配置](/md/channels/email)

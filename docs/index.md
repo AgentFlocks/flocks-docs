@@ -74,7 +74,7 @@ features:
 
 1. 按部署与接入顺序完成 [部署与配置](/md/communication)
 2. 补齐模型与供应商： [模型配置](/md/communication-models) 和 [模型报错排查](/md/llm_models#模型报错排查)
-3. 配置消息通道：选择 [钉钉](/md/channels/dingtalk)、[飞书](/md/channels/feishu)、[企微](/md/channels/wecom)、[Telegram](/md/channels/telegram)、[微信](/md/channels/weixin)、[WhatsApp](/md/channels/whatsapp)、[邮件网关](/md/channels/email) 配置页
+3. 配置消息通道：选择 [钉钉](/md/channels/dingtalk)、[飞书](/md/channels/feishu)、[企微](/md/channels/wecom)、[Slack](/md/channels/slack)、[Telegram](/md/channels/telegram)、[微信](/md/channels/weixin)、[WhatsApp](/md/channels/whatsapp)、[邮件网关](/md/channels/email) 配置页
 4. 对接内部工具： [工具清单](/md/modules/tools)
 
 ### 我要做安全运营场景

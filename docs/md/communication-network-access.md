@@ -153,6 +153,7 @@
     <tr><td>按企业微信返回的 MCP Host 解析</td><td>tcp</td><td>443</td><td>企业微信 <code>wecom_mcp</code> 运行时返回的 MCP URL</td><td>按企业微信返回的 MCP Host</td></tr>
     <tr><td><code>43.163.165.187</code><br><code>43.163.179.90</code></td><td>tcp</td><td>443</td><td>微信通道</td><td><code>ilinkai.weixin.qq.com</code></td></tr>
     <tr><td><code>114.221.149.151</code><br><code>114.222.112.72</code><br><code>121.229.91.162</code></td><td>tcp</td><td>443</td><td>微信通道 CDN</td><td><code>novac2c.cdn.weixin.qq.com</code></td></tr>
+    <tr><td>按 Slack 服务解析</td><td>tcp</td><td>443</td><td>Slack API 与 Socket Mode WebSocket</td><td><code>slack.com</code><br><code>api.slack.com</code><br><code>wss.slack.com</code></td></tr>
     <tr><td><code>149.154.166.110</code></td><td>tcp</td><td>443</td><td>Telegram Bot API</td><td><code>api.telegram.org</code></td></tr>
     <tr><td>按客户邮箱服务解析</td><td>tcp</td><td><code>993</code><br><code>587</code><br><code>465</code></td><td>邮件网关 IMAP 收信与 SMTP 发信</td><td>客户邮箱服务商或企业邮箱 IMAP / SMTP 域名</td></tr>
   </tbody>
