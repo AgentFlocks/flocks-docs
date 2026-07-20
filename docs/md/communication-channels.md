@@ -1,12 +1,12 @@
 # 3.3 通道配置
 
-通道配置负责把 Flocks 的能力延伸到 IM、邮件或外部触点。当前 WebUI 的通道页已经支持飞书、企业微信、微信、WhatsApp、Telegram、钉钉和邮件网关等通道，并且允许分别查看启用状态和配置字段。
+通道配置负责把 Flocks 的能力延伸到 IM、邮件或外部触点。当前 WebUI 的通道页已经支持飞书、企业微信、Slack、微信、WhatsApp、Telegram、钉钉和邮件网关等通道，并且允许分别查看启用状态和配置字段。
 
 ![通道配置页面](../img/communication-channels-overview.png)
 
 配置通道后，Flocks 可以覆盖下面这些典型使用场景：
 
-- 把研判结果主动发到企业微信群、微信会话、WhatsApp 会话、钉钉群、邮箱或其他消息触点
+- 把研判结果主动发到企业微信群、Slack 频道、微信会话、WhatsApp 会话、钉钉群、邮箱或其他消息触点
 - 让机器人在特定群、会话或邮件线程中接收消息
 - 把定时任务的结果直接推送给值班人员或运营团队
 
@@ -17,12 +17,13 @@
 - [钉钉通道配置](/md/channels/dingtalk)：企业内部应用 + 机器人 + 群内验证
 - [飞书通道配置](/md/channels/feishu)：飞书开放平台自建应用 + 权限 + App ID / App Secret
 - [企业微信通道配置](/md/channels/wecom)：企业微信管理后台 + 智能机器人 + Bot ID / Secret
+- [Slack 通道配置](/md/channels/slack)：Slack App + Socket Mode + Bot Token / App Token
 - [Telegram 通道配置](/md/channels/telegram)：BotFather 创建 Bot + Bot Token + Polling / Webhook
 - [微信通道配置](/md/channels/weixin)：微信 iLink Bot 扫码登录 + Token / Account ID
 - [WhatsApp 通道配置](/md/channels/whatsapp)：WhatsApp Linked Devices 扫码配对 + 本地 Baileys bridge
 - [邮件网关配置](/md/channels/email)：专用邮箱 + IMAP 收信 + SMTP 回信 + 发件人白名单
 
-每个子页面都给出了从平台侧准备到 Flocks 连接的完整步骤。多群投递与 `session ID` 的使用细节，放在 [企业微信通道配置](/md/channels/wecom#多群消息与-session-id)、[Telegram 通道配置](/md/channels/telegram#结果推送与-session-id)、[WhatsApp 通道配置](/md/channels/whatsapp#结果推送与-session-id) 和 [邮件网关配置](/md/channels/email#结果推送与-session-id) 中分别说明；微信和 WhatsApp 通道都通过 WebUI 内置二维码流程完成账号连接，邮件网关则通过标准 IMAP / SMTP 邮箱账号完成连接。
+每个子页面都给出了从平台侧准备到 Flocks 连接的完整步骤。多群投递与 `session ID` 的使用细节，放在 [企业微信通道配置](/md/channels/wecom#多群消息与-session-id)、[Slack 通道配置](/md/channels/slack#结果推送与-session-id)、[Telegram 通道配置](/md/channels/telegram#结果推送与-session-id)、[WhatsApp 通道配置](/md/channels/whatsapp#结果推送与-session-id) 和 [邮件网关配置](/md/channels/email#结果推送与-session-id) 中分别说明；Slack 通道推荐通过 Socket Mode 主动连接 Slack，微信和 WhatsApp 通道都通过 WebUI 内置二维码流程完成账号连接，邮件网关则通过标准 IMAP / SMTP 邮箱账号完成连接。
 
 ## 3.3.2 使用方式
 
@@ -30,7 +31,7 @@
 
 ### 从 IM 或邮件中直接发消息
 
-在企业微信、飞书、钉钉、Telegram、微信、WhatsApp 等 IM 中向 Flocks 机器人发送消息，或向邮件网关邮箱发送邮件后，Flocks 会在当前 IM 会话或邮件线程中回答。
+在企业微信、飞书、Slack、钉钉、Telegram、微信、WhatsApp 等 IM 中向 Flocks 机器人发送消息，或向邮件网关邮箱发送邮件后，Flocks 会在当前 IM 会话或邮件线程中回答。
 
 常见用法：
 
