@@ -49,7 +49,7 @@ CLI 适合服务启停、日志查看、任务管理、MCP 管理、Skill 安装
 | --- | --- | --- |
 | `flocks start` | 以守护进程方式启动后端和 WebUI。 | `flocks start --no-browser` |
 | `flocks stop` | 停止后端和 WebUI。 | `flocks stop` |
-| `flocks restart` | 重启后端和 WebUI。 | `flocks restart --server-port 8000` |
+| `flocks restart` | 重启后端和 WebUI。 | `flocks restart --port 5173` |
 | `flocks status` | 查看后端和 WebUI 状态。 | `flocks status` |
 | `flocks logs` | 查看后端和 WebUI 日志。 | `flocks logs --backend -n 100` |
 | `flocks tui` | 启动 TUI 对话界面。 | `flocks tui --directory .` |
@@ -61,8 +61,9 @@ CLI 适合服务启停、日志查看、任务管理、MCP 管理、Skill 安装
 
 - `flocks start/restart --no-browser`：启动后不自动打开浏览器。
 - `flocks start/restart --skip-webui-build`：跳过 WebUI 构建。
-- `flocks start/restart --server-host <host> --server-port <port>`：指定后端地址。
-- `flocks start/restart --webui-host <host> --webui-port <port>`：指定 WebUI 地址。
+- `flocks start/restart --host <host> --port <port>`：指定 WebUI 与 API 共用的公开服务地址。
+- `flocks start/restart --server-host/--server-port` 和 `--webui-host/--webui-port`：兼容旧启动配置的高级选项；普通部署优先使用 `--host/--port`。
+- `flocks restart` 未显式传入地址和端口时，会尽量复用当前运行服务的配置。
 - `flocks logs --backend`：只看后端日志。
 - `flocks logs --webui`：只看 WebUI 日志。
 - `flocks logs --follow/--no-follow`：是否持续跟随日志。

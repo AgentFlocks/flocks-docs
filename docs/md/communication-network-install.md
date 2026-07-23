@@ -22,20 +22,19 @@ docker save ghcr.io/agentflocks/flocks:latest -o flocks-offline.tar
 docker load -i flocks-offline.tar
 ```
 
-4. 启动服务（默认映射 WebUI 与 API）：
+4. 启动服务（WebUI 与 API 共用统一端口）：
 
 ```bash
 docker run -d \
   --name flocks \
   -e TZ=Asia/Shanghai \
-  -p 8000:8000 \
   -p 5173:5173 \
   --shm-size 4gb \
   -v "${HOME}/.flocks:/home/flocks/.flocks" \
   ghcr.io/agentflocks/flocks:latest
 ```
 
-启动后本机访问 `http://127.0.0.1:5173`，或按实际网络策略将端口映射给业务网络。
+启动后本机访问 `http://127.0.0.1:5173`，API 使用同源 `/api` 路径。也可以按实际网络策略将 `5173` 端口映射给业务网络。
 
 ## 3.2.2 相关文档
 

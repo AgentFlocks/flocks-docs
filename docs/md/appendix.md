@@ -79,9 +79,9 @@ flocks restart
 
 Flocks 后端基于 FastAPI 提供 API 服务。完整接口定义以运行时 OpenAPI 为准：
 
-- Swagger UI：`http://127.0.0.1:8000/docs`
-- ReDoc：`http://127.0.0.1:8000/redoc`
-- OpenAPI JSON：`http://127.0.0.1:8000/openapi.json`
+- Swagger UI：`http://127.0.0.1:5173/docs`
+- ReDoc：`http://127.0.0.1:5173/redoc`
+- OpenAPI JSON：`http://127.0.0.1:5173/openapi.json`
 
 对普通使用者来说，真正高频的 API 通常集中在：
 
