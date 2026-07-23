@@ -48,7 +48,7 @@ curl.exe http://127.0.0.1:19122/json/version
 
 ## 3.8.3 启动 Flocks 容器
 
-启动容器时映射 Flocks 的 WebUI 和后端 API 端口：
+启动容器时映射 Flocks 的统一服务端口：
 
 macOS：
 
@@ -57,7 +57,6 @@ docker run -d \
   --name flocks \
   -e TZ=Asia/Shanghai \
   -e BU_CDP_URL="http://host.docker.internal:19122" \
-  -p 8000:8000 \
   -p 5173:5173 \
   --shm-size 4gb \
   -v "${HOME}/.flocks:/home/flocks/.flocks" \
@@ -71,14 +70,13 @@ docker run -d `
   --name flocks `
   -e TZ=Asia/Shanghai `
   -e BU_CDP_URL="http://host.docker.internal:19122" `
-  -p 8000:8000 `
   -p 5173:5173 `
   --shm-size 4gb `
   -v "${env:USERPROFILE}\.flocks:/home/flocks/.flocks" `
   ghcr.io/agentflocks/flocks:latest
 ```
 
-`BU_CDP_URL` 会随容器启动注入，使 Flocks 可以直接连接宿主机的 Chrome。Chrome 运行在宿主机上，容器主动连接宿主机的 `19122` 端口，因此不需要使用 `-p 19122:19122` 将该端口发布到宿主机。
+WebUI 与 API 共用 `5173` 端口，API 请求使用同源 `/api` 路径。`BU_CDP_URL` 会随容器启动注入，使 Flocks 可以直接连接宿主机的 Chrome。Chrome 运行在宿主机上，容器主动连接宿主机的 `19122` 端口，因此不需要使用 `-p 19122:19122` 将该端口发布到宿主机。
 
 ## 3.8.4 在 Flocks 中配置浏览器
 

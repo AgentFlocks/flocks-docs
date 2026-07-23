@@ -87,7 +87,6 @@ docker pull ghcr.io/agentflocks/flocks:latest
 docker run -d \
   --name flocks \
   -e TZ=Asia/Shanghai \
-  -p 8000:8000 \
   -p 5173:5173 \
   --shm-size 4gb \
   -v "${HOME}/.flocks:/home/flocks/.flocks" \
@@ -100,7 +99,6 @@ Windows PowerShell
 docker run -d `
   --name flocks `
   -e TZ=Asia/Shanghai `
-  -p 8000:8000 `
   -p 5173:5173 `
   --shm-size 4gb `
   -v "${env:USERPROFILE}\.flocks:/home/flocks/.flocks" `
@@ -115,7 +113,7 @@ Docker 国内镜像地址：
 - milu GHCR：`docker pull ghcr.milu.moe/agentflocks/flocks:latest`
 - NJU GHCR：`docker pull ghcr.nju.edu.cn/agentflocks/flocks:latest`
 
-需要注意的是，Docker 更适合服务化使用，不适合依赖本机交互式浏览器登录的场景。如果你的任务高度依赖网页登录和人工交互，命令行安装或源码安装更合适。镜像中的 `EXPOSE` 仅用于声明容器端口，实际仍需要 `-p 8000:8000 -p 5173:5173` 才能从宿主机浏览器访问服务。
+需要注意的是，Docker 更适合服务化使用，不适合依赖本机交互式浏览器登录的场景。如果你的任务高度依赖网页登录和人工交互，命令行安装或源码安装更合适。镜像中的 `EXPOSE` 仅用于声明容器端口，实际仍需要 `-p 5173:5173` 才能从宿主机浏览器访问服务。WebUI 与 API 共用该端口，API 请求使用同源 `/api` 路径。
 
 ## 安装前的最低依赖
 
