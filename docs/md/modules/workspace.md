@@ -87,7 +87,11 @@ export FLOCKS_WORKSPACE_DIR=/data/flocks-workspace
 
 ### 3.4 用户级、项目级和共享能力
 
-Flocks 的 Agent、Skills、Workflow、Tools 等能力通常支持用户级和项目级安装。项目级能力放在当前项目或 Workspace 下，只在当前项目中可见；用户级能力放在用户目录下，可被当前用户复用。
+Flocks 的部分插件能力支持用户级和项目级安装，但这些能力目录不由 Workspace 文件模块管理。以 Skill 为例：
+
+- 用户级 Skill 位于 `~/.flocks/plugins/skills/`。
+- 项目级 Skill 位于当前项目的 `.flocks/plugins/skills/`，跟随项目文件和版本控制。
+- Workspace 负责业务文件、上传内容、运行产物和记忆文件，不是项目级 Skill 的存储目录。
 
 Pro 多账号环境中，每个用户有自己的私有对话历史和私有 Workspace 目录；Agent、Skills、Tools、设备、任务、Workflow、模型、通道等平台能力默认仍是共享能力，便于团队统一维护。
 

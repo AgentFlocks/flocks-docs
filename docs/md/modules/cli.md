@@ -174,6 +174,8 @@ flocks skills list --status
 flocks skills list --json
 flocks skills find "threat intel"
 flocks skills install clawhub:github
+flocks skills install skills-sh:owner/repo/skill-name
+flocks skills install safeskill://...
 flocks skills install github:owner/repo --skill skill-name
 flocks skills install https://example.com/SKILL.md
 flocks skills install /local/path/to/skill
@@ -186,6 +188,8 @@ Skill 安装支持 `global` 和 `project` 作用域：
 ```bash
 flocks skills install github:owner/repo/skills/foo --scope project
 ```
+
+`project` 会安装到当前项目目录下的 `.flocks/plugins/skills/`，并不写入 Workspace 业务文件目录。`flocks skills remove` 仅能删除 `~/.flocks/plugins/skills/` 中的用户级 Skill。
 
 ## 7. 账号与安全 CLI
 

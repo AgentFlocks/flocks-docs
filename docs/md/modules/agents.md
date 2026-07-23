@@ -317,17 +317,17 @@ Rex 在会话里判断是否委派子 Agent，常见判据包括：
 
 ### 9.3 动态子 Agent：Rex-junior
 
-除了委派给某个已经创建好的专家 Agent，Rex 还可以把一个 Skill 委派给 `Rex-junior` Agent 来执行。
+除了委派给某个已经创建好的专家 Agent，Rex 还可以调用 `delegate_task(category=..., load_skills=[...])`，让分类执行器在独立子任务中使用指定 Skill。分类委派当前由 `Rex-junior` 执行。
 
-这种模式可以理解为"动态子 Agent"：Rex 会把指定 Skill 作为 `Rex-junior` 的 System Prompt，在一个独立的子 Agent 执行空间中运行。这样既可以复用 Skill 中沉淀的方法论、规则和任务模板，又能让执行过程与主会话保持适度隔离，适合处理需要临时专家角色但还没有必要固化成长期 Agent 的任务。
+实现上，`load_skills` 指定的完整 `SKILL.md` 内容会追加到子任务提示中，不会替换 `Rex-junior` 自身的 System Prompt。`Rex-junior` 也不是可直接指定的 `subagent_type`；应选择合适的 `category`。这种模式既可以复用 Skill 中沉淀的方法论、规则和任务模板，又能让执行过程与主会话保持适度隔离。
 
 典型使用方式：
 
 ```text
-用漏洞研判 Skill 分析这条 CVE，并让 Rex-junior 独立完成初步影响评估。
+用漏洞研判 Skill 分析这条 CVE，并在独立分类子任务中完成初步影响评估。
 ```
 
-如果某个 Skill 被反复通过 `Rex-junior` 执行，且执行边界、工具集和输出格式已经比较稳定，就可以考虑进一步沉淀为正式的专家 Agent。
+如果某个 Skill 被反复通过分类委派执行，且执行边界、工具集和输出格式已经比较稳定，就可以考虑进一步沉淀为正式的专家 Agent。
 
 ### 9.4 子 Agent 的嵌套调用
 
